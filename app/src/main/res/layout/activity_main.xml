@@ -1,19 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="#2B326A"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="118dp" />
+
+    <ImageView
+        android:id="@+id/ppName"
+        android:layout_width="match_parent"
+        android:layout_height="237dp"
+        app:srcCompat="@drawable/pp_name" />
+
     <TextView
+        android:id="@+id/getStarted_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="@string/getStarted_txt"
+        android:textColor="#AAB6E0"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="35dp" />
+
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/getStarted_txt"
+        android:layout_centerHorizontal="false"
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#8E99F3"
+        android:text="Log In"
+        android:textColor="#FFF2F2"
+        app:cornerRadius="30dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <TextView
+        android:id="@+id/orText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginButton"
+        android:layout_centerHorizontal="false"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="OR"
+        android:textColor="#C0C4F2"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/orText"
+        android:layout_centerHorizontal="false"
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#8E99F3"
+        android:text="Register"
+        android:textColor="#FFF2F2" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="62dp" />
+
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/language_FAB"-->
+    <!--        android:layout_width="50dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_alignParentStart="true"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_margin="20dp"-->
+    <!--        android:clickable="true"-->
+    <!--        app:srcCompat="@drawable/ic_language_icon" />-->
+
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/helpIcon"-->
+    <!--        android:layout_width="50dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_alignParentEnd="false"-->
+    <!--        android:layout_alignParentBottom="false"-->
+    <!--        android:layout_gravity="right"-->
+    <!--        android:layout_margin="20dp"-->
+    <!--        android:contentDescription="Help Icon"-->
+    <!--        app:srcCompat="@android:drawable/ic_menu_help" />-->
+
+
+</LinearLayout>

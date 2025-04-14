@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PocketPlan</string>
+    <string name="getStarted_txt">Get Started</string>
 </resources>
