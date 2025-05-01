@@ -8,7 +8,7 @@
     android:layout_gravity="center_horizontal"
     android:background="#2B326A"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".LandingPageActivity">
 
     <Space
         android:layout_width="match_parent"
@@ -39,28 +39,40 @@
     <Button
         android:id="@+id/loginButton"
         android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/getStarted_txt"
-        android:layout_centerHorizontal="false"
+        android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="#8E99F3"
-        android:text="Log In"
-        android:textColor="#FFF2F2"
-        app:cornerRadius="30dp" />
+        android:backgroundTint="#8695DC"
+        android:fontFamily="@font/montserrat_medium"
+        android:padding="14dp"
+        android:text="Login"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textColor="#DBD4D7" />
+
+<!--    <Button-->
+<!--        android:id="@+id/loginButton"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_below="@id/getStarted_txt"-->
+<!--        android:layout_centerHorizontal="false"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginLeft="40dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginRight="40dp"-->
+<!--        android:background="@drawable/rounded_button"-->
+<!--        android:backgroundTint="#8695DC"-->
+<!--        android:text="Log In"-->
+<!--        android:textColor="#FFF2F2"-->
+<!--        app:cornerRadius="30dp" />-->
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="25dp" />
+        android:layout_height="30dp" />
 
     <TextView
         android:id="@+id/orText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginButton"
         android:layout_centerHorizontal="false"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
@@ -71,22 +83,34 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="25dp" />
+        android:layout_height="30dp" />
+
+<!--    <Button-->
+<!--        android:id="@+id/registerButton"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_centerHorizontal="false"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginLeft="40dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginRight="40dp"-->
+<!--        android:background="@drawable/rounded_button"-->
+<!--        android:backgroundTint="#8E99F3"-->
+<!--        android:text="Register"-->
+<!--        android:textColor="#FFF2F2" />-->
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/orText"
-        android:layout_centerHorizontal="false"
+        android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="#8E99F3"
+        android:backgroundTint="#8695DC"
+        android:fontFamily="@font/montserrat_medium"
+        android:padding="14dp"
         android:text="Register"
-        android:textColor="#FFF2F2" />
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textColor="#DBD4D7" />
 
     <Space
         android:layout_width="match_parent"
