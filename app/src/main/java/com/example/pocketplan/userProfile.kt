@@ -11,23 +11,27 @@ class userProfile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
 
-        val context = this
-        findViewById<TextView>(R.id.menuBanking).setOnClickListener {
-            startActivity(Intent(context, Help::class.java))
+       // val menuBanking = findViewById<TextView>(R.id.menuBanking)
+        val menuHelp = findViewById<TextView>(R.id.menuHelp)
+        val menuTips = findViewById<TextView>(R.id.menuTips)
+        val menuLanguage = findViewById<TextView>(R.id.menuLanguage)
+
+
+        menuHelp.setOnClickListener {
+            val intent = Intent(this@userProfile, Help::class.java)
+            startActivity(intent)
         }
 
-        findViewById<TextView>(R.id.menuBanking).setOnClickListener {
-            startActivity(Intent(context, tips::class.java))
+        menuTips.setOnClickListener {
+            val intent = Intent(this@userProfile, tips::class.java)
+            startActivity(intent)
         }
 
-        findViewById<TextView>(R.id.menuBanking).setOnClickListener {
-            startActivity(Intent(context, language::class.java))
+        menuLanguage.setOnClickListener {
+            val intent = Intent(this@userProfile, language::class.java)
+            startActivity(intent)
         }
 
-       /* findViewById<TextView>(R.id.menuBanking).setOnClickListener {
-            startActivity(Intent(context, bankingApp::class.java))
-        }*/
-        //make a plan here.
 
     }
 }
