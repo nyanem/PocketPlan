@@ -13,51 +13,14 @@
         android:theme="@style/Theme.PocketPlan"
         tools:targetApi="31">
         <activity
-            android:name=".GoalsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SurveyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CategoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AppDatabase"
-            android:exported="false" />
-        <activity
-            android:name=".CategoryEntity"
-            android:exported="false" />
-        <activity
-            android:name=".HomePageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CreateProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LandingPageActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- <activity android:name=".RegisterActivity" /> &lt;!&ndash; <activity &ndash;&gt; -->
-        <!-- android:name=".MainActivity" -->
-        <!-- android:exported="true"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+        </activity>
     </application>
 
 </manifest>
