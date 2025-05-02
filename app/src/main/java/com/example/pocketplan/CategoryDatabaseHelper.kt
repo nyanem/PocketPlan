@@ -10,7 +10,7 @@ class CategoryDatabaseHelper(context: Context) :
 
     companion object {
         private const val DATABASE_NAME = "PocketPlan.db"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
         private const val TABLE_NAME = "selected_categories"
         private const val COLUMN_ID = "id"
         private const val COLUMN_NAME = "name"

@@ -91,7 +91,7 @@ class CategoryActivity : AppCompatActivity() {
             selectedCategories.forEach { dbHelper.insertCategory(it) }
 
             val intent = Intent(this, GoalsActivity::class.java)
-            intent.putExtra("categories", selectedCategories.toTypedArray())
+//            intent.putExtra("categories", selectedCategories.toTypedArray())
             startActivity(intent)
         }
     }
