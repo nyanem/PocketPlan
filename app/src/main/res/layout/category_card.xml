@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:fontFamily="@font/montserrat_semibold"
+            android:fontFamily="@font/montserrat_semibold_family"
             android:text="R700"
             android:textColor="#FFF2F2"
             android:textSize="22sp"

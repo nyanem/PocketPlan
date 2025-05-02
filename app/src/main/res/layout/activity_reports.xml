@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="380dp"
         android:layout_height="40dp"
-        android:fontFamily="@font/montserrat_semibold"
+        android:fontFamily="@font/montserrat_semibold_family"
         android:text="Total Spending Report"
         android:textColor="@color/blue2"
         android:textSize="18sp" />
@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="380dp"
         android:layout_height="40dp"
-        android:fontFamily="@font/montserrat_semibold"
+        android:fontFamily="@font/montserrat_semibold_family"
         android:text="Total Saving Report"
         android:textColor="@color/blue2"
         android:textSize="18sp" />
