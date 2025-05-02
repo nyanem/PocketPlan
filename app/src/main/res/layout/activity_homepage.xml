@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/montserrat_semibold"
             android:text="Budget Amount Remaining"
             android:textColor="#FFF2F2"
             android:textSize="14sp" />
@@ -44,7 +44,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/progressbar_style"
             android:max="100"
-            android:progress="30"
+            android:progress="1"
             android:progressDrawable="@drawable/progressbar_style" />
 
         <ScrollView

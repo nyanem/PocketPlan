@@ -56,6 +56,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_edittext"
         android:importantForAutofill="no"
+        android:inputType="number"
         android:padding="14dp"
         android:textColor="#000"
         android:textColorHint="#6E79BA" />
@@ -70,15 +71,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_vertical"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="What is your main savings goal? (per month)"
+        android:text="What is your maximum savings goal? (per month) This will be your Budget"
+        android:textAlignment="center"
         android:textColor="#AAB6E0"
-        android:textSize="16sp" />
+        android:textSize="15sp" />
 
     <EditText
         android:id="@+id/maxsavings_txtbox"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:inputType="number"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_edittext"
         android:padding="14dp"
@@ -105,6 +108,7 @@
         android:id="@+id/minsavings_txtbox"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_edittext"
