@@ -26,9 +26,9 @@
         android:fontFamily="@font/montserrat_semibold"
         android:text="Remaining Balance"
         android:textColor="@color/blue2"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="166dp" />
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="191dp" />
 
     <EditText
         android:id="@+id/balanceEditText"
@@ -50,7 +50,7 @@
         android:textColor="@color/blue2"
         android:textSize="16sp"
         tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="217dp" />
+        tools:layout_editor_absoluteY="240dp" />
 
     <EditText
         android:id="@+id/amountEditText"
@@ -88,7 +88,7 @@
         android:fontFamily="@font/montserrat_semibold"
         android:text="Date"
         android:textColor="@color/blue2"
-        android:textSize="16sp"
+        android:textSize="18sp"
         tools:layout_editor_absoluteX="32dp"
         tools:layout_editor_absoluteY="339dp" />
 
@@ -112,7 +112,7 @@
         android:fontFamily="@font/montserrat_semibold"
         android:text="Upload Receipt"
         android:textColor="@color/blue2"
-        android:textSize="16sp"
+        android:textSize="18sp"
         tools:layout_editor_absoluteX="32dp"
         tools:layout_editor_absoluteY="397dp" />
 

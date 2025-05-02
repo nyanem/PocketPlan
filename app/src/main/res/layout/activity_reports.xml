@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Total Spending Report"
+        android:textColor="@color/blue2"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="381dp"
+        android:layout_height="214dp"/>
+<!--        android:src="@drawable/ic_graph_placeholder" />-->
+
+    <TextView
+        android:layout_width="380dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Total Saving Report"
+        android:textColor="@color/blue2"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="381dp"
+        android:layout_height="226dp"/>
+<!--        android:src="@drawable/ic_graph_placeholder" />-->
+</LinearLayout>
+
