@@ -25,24 +25,31 @@ class SurveyActivity : AppCompatActivity() {
         val saveBtn = findViewById<Button>(R.id.saveSurveyButton)
 
         saveBtn.setOnClickListener {
-            val income = incomeBox.text.toString().trim()
-            val maxSaving = maxSavingsBox.text.toString().trim()
-            val minSaving = minSavingsBox.text.toString().trim()
+            val income = incomeBox.text.toString().toDoubleOrNull()
+            val maxInput = maxSavingsBox.text.toString().trim()
+            val minInput = minSavingsBox.text.toString().trim()
 
-            val prefs = getSharedPreferences("UserData", MODE_PRIVATE)
-            with(prefs.edit()) {
-                putString("income", income)
-                putString("maxSaving", maxSaving)
-                putString("minSaving", minSaving)
-                apply()
+            val max = maxInput.toDoubleOrNull()
+            val min = minInput.toDoubleOrNull()
+
+            if (income == null || max == null || min == null) {
+                Toast.makeText(this, "Please input valid numbers", Toast.LENGTH_SHORT).show()
+            } else {
+                val dbHelper = PocketPlanDBHelper(this)
+                val success = dbHelper.insertSurveyData(income, max, min)
+
+                if (success) {
+                    Toast.makeText(this, "Survey saved!", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, CategoryActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this, "Failed to save survey to database.", Toast.LENGTH_SHORT).show()
+                }
             }
+        }
 
-            Toast.makeText(this, "Saved successfully!", Toast.LENGTH_SHORT).show()
-        }
-        val saveSurveyButton = findViewById<Button>(R.id.saveSurveyButton)
-        saveSurveyButton.setOnClickListener {
-            val intent = Intent(this, CategoryActivity::class.java)
-            startActivity(intent)
-        }
+
     }
+
 }

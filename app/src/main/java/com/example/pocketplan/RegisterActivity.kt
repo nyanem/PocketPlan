@@ -47,6 +47,10 @@ class RegisterActivity : AppCompatActivity() {
                         " a number, and no special characters.", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
+            if (dbHelper.userExists(username)){
+                Toast.makeText(this, "User already exists", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             // Validate password
             if (password.length < 8 || !password.any { it.isUpperCase() } || !password.any { it.isDigit() } || !password.all { it.isLetterOrDigit() }) {
@@ -59,15 +63,14 @@ class RegisterActivity : AppCompatActivity() {
 
             if (success) {
                 Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
-                // Navigate to login
-                val intent = Intent(this, SurveyActivity::class.java)
-                startActivity(intent)
+
                 finish()
             } else {
                 Toast.makeText(this, "Registration failed. Username might already exist.", Toast.LENGTH_SHORT).show()
             }
 
-
+            val intent = Intent(this, SurveyActivity::class.java)
+            startActivity(intent)
         }
 
     }
