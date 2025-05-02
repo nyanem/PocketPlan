@@ -1,5 +1,6 @@
 package com.example.pocketplan
 
+
 import android.R.attr.id
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -118,10 +119,6 @@ class AddTransaction : AppCompatActivity() {
         }
     }
 
-    private fun dispatchTakePictureIntent() {
-        TODO("Not yet implemented")
-    }
-
     private fun updateDateInView() {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         dateEditText.setText(dateFormat.format(calendar.time))
@@ -198,4 +195,8 @@ class AddTransaction : AppCompatActivity() {
             Toast.makeText(this, "Error saving transaction", Toast.LENGTH_SHORT).show()
         }
     }
+}
+
+private fun AddTransaction.dispatchTakePictureIntent() {
+    TODO("Not yet implemented")
 }
