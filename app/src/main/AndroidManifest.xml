@@ -16,7 +16,7 @@
         <activity android:name=".Help" />
         <activity android:name=".Tips" />
         <activity android:name=".Language" />
-
+        <activity android:name=".MainActivity" />
 
         <activity
             android:name=".UserProfile"
