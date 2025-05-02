@@ -1,6 +1,7 @@
 package com.example.pocketplan
 
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -24,5 +25,14 @@ class Help : AppCompatActivity() {
         chip2.setOnClickListener {
             Toast.makeText(this, "Feature in Progress", Toast.LENGTH_SHORT).show()
         }
+
+        // Find the back button in the layout
+        val backButton = findViewById<ImageButton>(R.id.backButton)
+
+        // Set an OnClickListener to handle the back button click
+        backButton.setOnClickListener {
+            // Close the current activity and return to the previous one (User Profile Page)
+            finish()
+            }
         }
     }
