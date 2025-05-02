@@ -39,9 +39,8 @@ class Expenses : AppCompatActivity() {
         loadTransactions()
 
         rewardsButton.setOnClickListener {
-            // Navigate to Rewards screen
-            // You can replace this with the actual navigation code once implemented
-            // findNavController().navigate(R.id.action_transactions_to_rewards)
+            val intent = Intent(this, Rewards::class.java)
+            startActivity(intent)
         }
     }
 

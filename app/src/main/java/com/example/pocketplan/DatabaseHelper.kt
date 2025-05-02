@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.net.Uri
+import java.sql.Blob
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -25,8 +26,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val KEY_DATE = "date"
         private const val KEY_RECEIPT_ID = "receipt_id"
 
-        // Receipts table columns
-        private const val KEY_URI = "uri"
+
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -43,11 +43,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         // Create Receipts table
         val createReceiptsTable = """
-            CREATE TABLE $TABLE_RECEIPTS (
-                $KEY_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                $KEY_URI TEXT
-            )
-        """.trimIndent()
+    CREATE TABLE $TABLE_RECEIPTS (
+        $KEY_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+        image BLOB
+    )
+    """.trimIndent()
+
+
+
+
 
         db.execSQL(createTransactionsTable)
         db.execSQL(createReceiptsTable)
@@ -84,6 +88,17 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return id
     }
 
+    fun insertImage(imageBytes: ByteArray): Long {
+        val db = this.writableDatabase
+        val values = ContentValues().apply {
+            put("image", imageBytes)
+        }
+        val id = db.insert(TABLE_RECEIPTS, null, values)
+        db.close()
+        return id
+    }
+
+
     // Get all transactions
     fun getAllTransactions(): List<Transaction> {
         val transactions = mutableListOf<Transaction>()
@@ -119,6 +134,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     fun addReceipt(uri: String): Long {
         val db = this.writableDatabase
         val values = ContentValues().apply {
+            val KEY_URI = ""
             put(KEY_URI, uri)
         }
 
