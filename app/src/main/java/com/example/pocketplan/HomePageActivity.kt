@@ -30,11 +30,11 @@ class HomePageActivity : AppCompatActivity() {
 
         // Simulate spent values (replace with real tracking later)
         val maxSpent = 1000.0
-        val minSpent = 0.0
+        //
 
 //        addCategoryCard(container, "Max Saving Goal", maxSaving, maxSpent)
 //        addCategoryCard(container, "Min Saving Goal", minSaving, minSpent)
-          addCategoryCard(container, "Groceries", maxSpent, minSpent)
+          addCategoryCard(container, "Groceries", maxSpent, maxSaving)
 
     }
     private fun addCategoryCard(container: LinearLayout, categoryName: String, totalBudget: Double, amountSpent: Double) {
