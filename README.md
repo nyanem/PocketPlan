@@ -15,7 +15,7 @@ PocketPlan is straightforward, easy-to-use Android budgeting app that helps peop
 - ❔Tips, Tricks and FAQ'S
 
 ## Video Demonstration Link 
-https://youtu.be/I9K9E36m79s?feature=shared 
+https://youtu.be/ROwj-LSHFOk?si=2TdVdpjVHRAesWZL 
 
 ## 🔜 Upcoming Features (Next Submission)
 
