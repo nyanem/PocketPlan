@@ -21,12 +21,12 @@
         <activity
             android:name=".CategoryActivity"
             android:exported="false" />
-        <activity
-            android:name=".AppDatabase"
-            android:exported="false" />
-        <activity
-            android:name=".CategoryEntity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".AppDatabase"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".CategoryEntity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".HomePageActivity"
             android:exported="false" />
@@ -36,6 +36,18 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".Help"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".Tips"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".Language"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".UserProfile"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
