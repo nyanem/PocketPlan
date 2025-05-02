@@ -63,8 +63,13 @@ class AddReceipt : AppCompatActivity() {
 
                 if (id != -1L) {
                     showToast("Image saved with ID: $id")
+                    val intent = Intent(this, AddTransaction::class.java)
+
+                    startActivity(intent)
                 } else {
-                    showToast("Failed to save image")
+                    val intent = Intent(this, AddTransaction::class.java)
+
+                    startActivity(intent)
                 }
             } else {
                 showToast("No image to upload")

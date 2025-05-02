@@ -9,10 +9,13 @@
         android:padding="16dp"
         android:visibility="visible">
 
+        <!--  Gift icon and rewards progress  -->
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="369dp"
             android:layout_height="95dp"
+            android:layout_marginTop="60dp"
             android:fontFamily="@font/montserrat_semibold"
             android:gravity="center_horizontal"
             android:text="Rewards"
@@ -21,51 +24,163 @@
             android:textColor="@color/blue2"
             android:textSize="24sp" />
 
-        <!--  Gift icon and rewards progress  -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/blue">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="163dp"
+                android:layout_height="115dp"
+                app:cardBackgroundColor="#7886C7"
+                app:cardCornerRadius="30dp">
+
+                <TextView
+                    android:layout_width="107dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center_horizontal"
+                    android:text="R1 000"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="108dp"
+                    android:layout_height="31dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="55dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center_horizontal"
+                    android:text="Savings Goal"
+                    android:textColor="@color/creme"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="108dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="80dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center_horizontal"
+                    android:text="(For March)"
+                    android:textColor="@color/creme"
+                    android:textSize="10dp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="147dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="200dp"
+                app:cardBackgroundColor="#7886C7"
+                app:cardCornerRadius="30dp">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="107dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="60dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center_horizontal"
+                    android:text="2"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="127dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="80dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center_horizontal"
+                    android:text="Week Streak"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15dp"
+                    android:textStyle="normal" />
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="268dp"
-            android:layout_height="136dp"
-            app:cardBackgroundColor="#7886C7">
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/blue3"
+            app:cardCornerRadius="10dp">
 
             <TextView
-                android:layout_width="213dp"
-                android:layout_height="81dp"
-                android:text="R1000                                                                                                                              Savings goals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:gravity="start|center_horizontal"
+                android:paddingTop="16dp"
+                android:text="2 Week Streak"
                 android:textColor="#FFFFFF"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
+        </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="298dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="-5dp"
+            app:cardBackgroundColor="@color/blue3"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="210dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:gravity="center_horizontal"
+                android:text="VIEW QR CODE"
+                android:textColor="#FFFFFF"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_marginStart="30dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:gravity="center_horizontal"
+                android:paddingTop="8dp"
+                android:text="Free Seattle Coffee!!"
+                android:textAlignment="viewStart"
+                android:textColor="#FFFFFF"
+                android:textSize="15dp"
+                android:textStyle="normal" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             app:cardBackgroundColor="@color/blue3"
-            app:cardCornerRadius="30dp">
+            app:cardCornerRadius="10dp">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="151dp"
-                android:gravity="center_horizontal"
-                android:paddingTop="8dp"
-                android:text="Free Seattle Coffee - View Code"
-                android:textColor="#FFFFFF" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue3">
-
-            <TextView
-                android:layout_width="348dp"
-                android:layout_height="83dp"
-                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:gravity="start|center_horizontal"
                 android:paddingTop="16dp"
-                android:text="2 Week Streak"
+                android:text="4 Week Streak"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+                android:textSize="15dp" />
         </androidx.cardview.widget.CardView>
 
         <!--  More rewards...  -->
