@@ -48,7 +48,7 @@ class CategorySelectionActivity : AppCompatActivity() {
     ) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
         inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val categoryName: TextView = itemView.findViewById(R.id.textViewCategoryName)
+            val categoryName: TextView = itemView.findViewById(R.id.textViewCategoryTitle)
 
             init {
                 itemView.setOnClickListener {
@@ -62,7 +62,7 @@ class CategorySelectionActivity : AppCompatActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
             val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_category, parent, false)
+                .inflate(R.layout.activity_category_selection, parent, false)
             return CategoryViewHolder(itemView)
         }
 
