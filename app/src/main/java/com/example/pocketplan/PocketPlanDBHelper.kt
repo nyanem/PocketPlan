@@ -140,6 +140,8 @@ class PocketPlanDBHelper(context: Context) :
 
     }
 
+
+
     fun userExists(username: String): Boolean {
         val db = this.readableDatabase
         val cursor = db.rawQuery(
@@ -265,6 +267,39 @@ class PocketPlanDBHelper(context: Context) :
         cursor.close()
         db.close()
         return maxGoal
+    }
+    fun getCategoriesBetweenDates(startMillis: Long, endMillis: Long): List<String> {
+        val db = readableDatabase
+        val categories = mutableListOf<String>()
+
+        val cursor = db.rawQuery(
+            "SELECT DISTINCT category FROM survey WHERE dateMillis BETWEEN ? AND ?",
+            arrayOf(startMillis.toString(), endMillis.toString())
+        )
+
+        while (cursor.moveToNext()) {
+            categories.add(cursor.getString(0))
+        }
+
+        cursor.close()
+        db.close()
+        return categories
+    }
+    fun getCategoryTotalsBetweenDates(startDate: String, endDate: String): Map<String, Double> {
+        val totals = mutableMapOf<String, Double>()
+        val db = readableDatabase
+        val cursor = db.rawQuery(
+            "SELECT category, SUM(amount) as total FROM transactions WHERE date BETWEEN ? AND ? GROUP BY category",
+            arrayOf(startDate, endDate)
+        )
+
+        while (cursor.moveToNext()) {
+            val category = cursor.getString(cursor.getColumnIndexOrThrow("category"))
+            val total = cursor.getDouble(cursor.getColumnIndexOrThrow("total"))
+            totals[category] = total
+        }
+        cursor.close()
+        return totals
     }
 
 }
