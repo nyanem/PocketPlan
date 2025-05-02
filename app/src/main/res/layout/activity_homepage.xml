@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2B2C6D">
+
+    <!-- Budget Remaining Display -->
+
+    <LinearLayout
+        android:id="@+id/budgetHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-4dp"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/budgetRemaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="@+id/maxsavings_txtbox"
+            android:textColor="#FFF2F2"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Budget Amount Remaining"
+            android:textColor="#FFF2F2"
+            android:textSize="14sp" />
+
+        <ProgressBar
+            android:id="@+id/savingsProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/progressbar_style"
+            android:max="100"
+            android:progress="30"
+            android:progressDrawable="@drawable/progressbar_style" />
+
+        <ScrollView
+            android:id="@+id/categoryScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottomNav"
+            android:layout_below="@id/budgetHeader">
+
+            <LinearLayout
+                android:id="@+id/categoryCardsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp" />
+
+
+        </ScrollView>
+<!--        <include layout="@layout/category_card" />-->
+    </LinearLayout>
+
+
+<!--    &lt;!&ndash; Category Cards &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:id="@+id/categoryContainer"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_below="@id/budgetHeader"-->
+<!--        android:padding="16dp">-->
+
+<!--&lt;!&ndash;        &lt;!&ndash; Example Food Card &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <include layout="@layout/category_card" />&ndash;&gt;-->
+
+<!--        &lt;!&ndash; Example Petrol Card &ndash;&gt;-->
+
+<!--&lt;!&ndash;        <include layout="@layout/category_card" />&ndash;&gt;-->
+
+
+
+<!--    </LinearLayout>-->
+
+    <!-- Add Transaction Button -->
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/addTransactionBtn"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="70dp"-->
+<!--        android:src="@drawable/ic_add"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginBottom="80dp"-->
+<!--        app:backgroundTint="#8695DC"-->
+<!--        app:tint="#FFFFFF" />-->
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="#2B2C6D"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/nav_menu" />
+
+</RelativeLayout>
