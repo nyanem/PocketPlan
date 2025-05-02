@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/montserrat_semibold"
+                android:fontFamily="@font/montserrat_semibold_family"
                 android:text="Create Budget Goals"
                 android:textColor="#AAB6E0"
                 android:textSize="24sp"

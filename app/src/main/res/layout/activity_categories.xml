@@ -29,7 +29,7 @@
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:fontFamily="@font/montserrat_semibold"
+        android:fontFamily="@font/montserrat_semibold_family"
         android:text="Select Categories of Expenses"
         android:textAlignment="center"
         android:textColor="#AAB6E0"
@@ -56,7 +56,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
             android:backgroundTint="#8695DC"
-            android:fontFamily="@font/montserrat_semibold"
+            android:fontFamily="@font/montserrat_semibold_family"
             android:text="Groceries"
             android:textColor="#DBD4D7" />
 
@@ -68,7 +68,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="30dp"
             android:backgroundTint="#8695DC"
-            android:fontFamily="@font/montserrat_semibold"
+            android:fontFamily="@font/montserrat_semibold_family"
             android:text="Rent"
             android:textColor="#DBD4D7" />
 
@@ -92,7 +92,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
             android:backgroundTint="#8695DC"
-            android:fontFamily="@font/montserrat_semibold"
+            android:fontFamily="@font/montserrat_semibold_family"
             android:text="Petrol"
             android:textColor="#DBD4D7" />
 
@@ -104,7 +104,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="30dp"
             android:backgroundTint="#8695DC"
-            android:fontFamily="@font/montserrat_semibold"
+            android:fontFamily="@font/montserrat_semibold_family"
             android:text="Bills"
             android:textColor="#DBD4D7" />
     </LinearLayout>
@@ -126,7 +126,7 @@
             android:layout_marginStart="30dp"
             android:layout_weight="1"
             android:backgroundTint="#8695DC"
-            android:fontFamily="@font/montserrat_semibold"
+            android:fontFamily="@font/montserrat_semibold_family"
             android:text="Home"
             android:textColor="#DBD4D7" />
 
@@ -138,7 +138,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="30dp"
             android:backgroundTint="#8695DC"
-            android:fontFamily="@font/montserrat_semibold"
+            android:fontFamily="@font/montserrat_semibold_family"
             android:text="Vacation"
             android:textColor="#DBD4D7" />
     </LinearLayout>
@@ -182,7 +182,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_edittext"
-            android:fontFamily="@font/montserrat_semibold"
+            android:fontFamily="@font/montserrat_semibold_family"
             android:hint="Add Category"
             android:padding="16dp"
             android:textAlignment="viewStart"

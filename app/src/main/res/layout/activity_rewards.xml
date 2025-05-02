@@ -13,7 +13,7 @@
             android:id="@+id/textView2"
             android:layout_width="369dp"
             android:layout_height="95dp"
-            android:fontFamily="@font/montserrat_semibold"
+            android:fontFamily="@font/montserrat_semibold_family"
             android:gravity="center_horizontal"
             android:text="Rewards"
             android:textAllCaps="false"

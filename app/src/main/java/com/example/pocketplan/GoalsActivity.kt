@@ -93,8 +93,6 @@
 
 package com.example.pocketplan
 
-import android.R.attr.category
-import android.R.id.input
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -103,7 +101,6 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -137,7 +134,7 @@ class GoalsActivity : AppCompatActivity() {
                 text = category
                 textSize = 17f
                 setTextColor(Color.parseColor("#AAB6E0"))
-                typeface = ResourcesCompat.getFont(this@GoalsActivity, R.font.montserrat_semibold)
+                typeface = ResourcesCompat.getFont(this@GoalsActivity, R.font.montserrat_semibold_family)
                 layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT

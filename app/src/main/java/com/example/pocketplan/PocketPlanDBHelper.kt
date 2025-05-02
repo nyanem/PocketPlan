@@ -14,7 +14,7 @@ class PocketPlanDBHelper(context: Context) :
 
     companion object {
         private const val DATABASE_NAME = "PocketPlan.db"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
 
         // Table: Categories
         private const val CATEGORY_TABLE_NAME = "selected_categories"
@@ -30,6 +30,20 @@ class PocketPlanDBHelper(context: Context) :
         private const val USER_COLUMN_SURNAME = "surname"
         private const val USER_COLUMN_MOBILE = "mobile"
         private const val USER_COLUMN_EMAIL = "email"
+
+        // Table: Survey
+        private const val SURVEY_TABLE_NAME = "survey_data"
+        private const val SURVEY_COLUMN_ID = "id"
+        private const val SURVEY_COLUMN_INCOME = "income"
+        private const val SURVEY_COLUMN_MAX_SAVING = "max_saving"
+        private const val SURVEY_COLUMN_MIN_SAVING = "min_saving"
+
+        // Table: Category Goal Amount
+        private const val CATEGORY_GOAL_TABLE_NAME = "categories_goal"
+        private const val GOAL_COLUMN_ID = "id"
+        private const val CATEGORY_NAME_COLUMN = "category name"
+        private const val GOAL_AMOUNT_COLUMN = "goal amount"
+
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -52,6 +66,26 @@ class PocketPlanDBHelper(context: Context) :
             )
         """
 
+        val createSurveyTable = """
+    CREATE TABLE IF NOT EXISTS $SURVEY_TABLE_NAME (
+        $SURVEY_COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+        $SURVEY_COLUMN_INCOME REAL NOT NULL,
+        $SURVEY_COLUMN_MAX_SAVING REAL NOT NULL,
+        $SURVEY_COLUMN_MIN_SAVING REAL NOT NULL
+    )
+"""
+
+        val createCategoryGoalTable ="""
+    CREATE TABLE IF NOT EXISTS $CATEGORY_GOAL_TABLE_NAME (
+        $GOAL_COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+        $CATEGORY_NAME_COLUMN TEXT NOT NULL,
+        $GOAL_AMOUNT_COLUMN REAL NOT NULL
+    ) 
+"""
+
+
+        db.execSQL(createCategoryGoalTable)
+        db.execSQL(createSurveyTable)
         db.execSQL(createCategoryTable)
         db.execSQL(createUserTable)
     }
@@ -87,19 +121,6 @@ class PocketPlanDBHelper(context: Context) :
         return list
     }
 
-//    fun getAllCategoryAmounts(): List<Pair<String, Double>> {
-//        val db = this.readableDatabase
-//        val cursor = db.rawQuery("SELECT name, amount FROM selected_categories", null)
-//        val result = mutableListOf<Pair<String, Double>>()
-//        while (cursor.moveToNext()) {
-//            val name = cursor.getString(0)
-//            val amount = cursor.getDouble(1)
-//            result.add(name to amount)
-//        }
-//        cursor.close()
-//        return result
-//    }
-
 
 
     // --- USER METHODS ---
@@ -118,6 +139,8 @@ class PocketPlanDBHelper(context: Context) :
         return result != -1L
 
     }
+
+
 
     fun userExists(username: String): Boolean {
         val db = this.readableDatabase
@@ -154,7 +177,134 @@ class PocketPlanDBHelper(context: Context) :
         db.close()
         return users
     }
+    fun insertSurveyData(income: Double, maxSaving: Double, minSaving: Double): Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues().apply {
+            put(SURVEY_COLUMN_INCOME, income)
+            put(SURVEY_COLUMN_MAX_SAVING, maxSaving)
+            put(SURVEY_COLUMN_MIN_SAVING, minSaving)
+        }
+        val result = db.insert(SURVEY_TABLE_NAME, null, contentValues)
+        return result != -1L
+    }
+
+    fun getLatestSurveyData(): Triple<Double, Double, Double>? {
+        val db = this.readableDatabase
+        val cursor = db.rawQuery(
+            "SELECT $SURVEY_COLUMN_INCOME, $SURVEY_COLUMN_MAX_SAVING, $SURVEY_COLUMN_MIN_SAVING FROM $SURVEY_TABLE_NAME ORDER BY $SURVEY_COLUMN_ID DESC LIMIT 1",
+            null
+        )
+        return if (cursor.moveToFirst()) {
+            val income = cursor.getDouble(0)
+            val maxSaving = cursor.getDouble(1)
+            val minSaving = cursor.getDouble(2)
+            cursor.close()
+            Triple(income, maxSaving, minSaving)
+        } else {
+            cursor.close()
+            null
+        }
+
+    }
+
+    fun insertCategoryGoal(categoryName: String, goalAmount: Double): Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues().apply {
+            put("category_name", categoryName)
+            put("goal_amount", goalAmount)
+        }
+
+        val result = db.insertWithOnConflict("category_goals", null, contentValues, SQLiteDatabase.CONFLICT_REPLACE)
+        db.close()
+        return result != -1L
+    }
+
+    fun getGoalAmount(categoryName: String): Double? {
+        val db = this.readableDatabase
+        val cursor = db.rawQuery(
+            "SELECT goal_amount FROM category_goals WHERE category_name = ?",
+            arrayOf(categoryName)
+        )
+
+        var amount: Double? = null
+        if (cursor.moveToFirst()) {
+            amount = cursor.getDouble(0)
+        }
+
+        cursor.close()
+        db.close()
+        return amount
+    }
+
+    fun insertOrUpdateGoal(category: String, amount: String) {
+        val db = writableDatabase
+        val stmt = db.compileStatement("INSERT OR REPLACE INTO goals (category, amount) VALUES (?, ?)")
+        stmt.bindString(1, category)
+        stmt.bindString(2, amount)
+        stmt.execute()
+        stmt.close()
+    }
+
+    fun getGoalForCategory(category: String): String {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT amount FROM goals WHERE category = ?", arrayOf(category))
+        var goal = ""
+        if (cursor.moveToFirst()) {
+            goal = cursor.getString(0)
+        }
+        cursor.close()
+        return goal
+    }
+
+    fun getMaxSavingGoal(): Double {
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("SELECT max_Saving FROM survey_data", null)
+        var maxGoal = 0.0
+
+        if (cursor.moveToFirst()) {
+            maxGoal = cursor.getDouble(0)
+        }
+        cursor.close()
+        db.close()
+        return maxGoal
+    }
+    fun getCategoriesBetweenDates(startMillis: Long, endMillis: Long): List<String> {
+        val db = readableDatabase
+        val categories = mutableListOf<String>()
+
+        val cursor = db.rawQuery(
+            "SELECT DISTINCT category FROM survey WHERE dateMillis BETWEEN ? AND ?",
+            arrayOf(startMillis.toString(), endMillis.toString())
+        )
+
+        while (cursor.moveToNext()) {
+            categories.add(cursor.getString(0))
+        }
+
+        cursor.close()
+        db.close()
+        return categories
+    }
+    fun getCategoryTotalsBetweenDates(startDate: String, endDate: String): Map<String, Double> {
+        val totals = mutableMapOf<String, Double>()
+        val db = readableDatabase
+        val cursor = db.rawQuery(
+            "SELECT category, SUM(amount) as total FROM transactions WHERE date BETWEEN ? AND ? GROUP BY category",
+            arrayOf(startDate, endDate)
+        )
+
+        while (cursor.moveToNext()) {
+            val category = cursor.getString(cursor.getColumnIndexOrThrow("category"))
+            val total = cursor.getDouble(cursor.getColumnIndexOrThrow("total"))
+            totals[category] = total
+        }
+        cursor.close()
+        return totals
+    }
 
 }
+
+
+
 
 
