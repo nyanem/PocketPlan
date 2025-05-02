@@ -7,9 +7,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -24,7 +26,7 @@ class AddTransaction : AppCompatActivity() {
     private lateinit var dbHelper: DatabaseHelper
     private lateinit var balanceEditText: EditText
     private lateinit var amountEditText: EditText
-    private lateinit var categoryTextView: TextView
+    private lateinit var categorySpinner: Spinner
     private lateinit var dateEditText: EditText
     private lateinit var uploadReceiptButton: ImageButton
     private lateinit var saveButton: Button
@@ -55,7 +57,7 @@ class AddTransaction : AppCompatActivity() {
                 val categoryId = data.getIntExtra("category_id", 0)
                 val categoryName = data.getStringExtra("category_name") ?: "Other"
                 selectedCategory = Category(categoryId, categoryName)
-                categoryTextView.text = categoryName
+                val categorySpinner = findViewById<Spinner>(R.id.categorySpinner)
             }
         }
     }
@@ -69,7 +71,7 @@ class AddTransaction : AppCompatActivity() {
         // Initialize views
         balanceEditText = findViewById(R.id.balanceEditText)
         amountEditText = findViewById(R.id.amountEditText)
-        categoryTextView = findViewById(R.id.categorySpinner)
+        categorySpinner = findViewById(R.id.categorySpinner)
         dateEditText = findViewById(R.id.dateEditText)
         uploadReceiptButton = findViewById(R.id.uploadButton)
         saveButton = findViewById(R.id.saveButton)
@@ -101,11 +103,18 @@ class AddTransaction : AppCompatActivity() {
         }
 
         // Set up category selection
-        categoryTextView.setOnClickListener {
-            // Here you would launch a category selection dialog or activity
-            // For simplicity, we'll just use the default category in this example
-            val intent = Intent(this, CategorySelectionActivity::class.java)
-            selectCategoryLauncher.launch(intent)
+        val categories = listOf("Food", "Transport", "Other") // Example
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        categorySpinner.adapter = adapter
+
+        val saveButton: Button = findViewById(R.id.saveButton)
+
+        saveButton.setOnClickListener {
+
+            val intent = Intent(this, Reports::class.java)
+
+            startActivity(intent)
         }
 
         // Set up receipt upload
