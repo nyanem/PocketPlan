@@ -19,7 +19,7 @@ import java.io.IOException
 class AddReceipt : AppCompatActivity() {
 
     private lateinit var imageView: ImageView
-    private lateinit var chooseButton: FloatingActionButton
+    private lateinit var takePhotoButton: Button
     private lateinit var uploadButton: Button
 
     private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
@@ -41,12 +41,13 @@ class AddReceipt : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_receipt)
 
-        imageView = findViewById(R.id.img_SavedPhoto)
-        chooseButton = findViewById(R.id.floatingActionButton)
-        uploadButton = findViewById(R.id.button)
+        imageView = findViewById(R.id.imageViewReceipt)
+        uploadButton = findViewById(R.id.uploadButton)
+        takePhotoButton = findViewById(R.id.btnOpenCamera)
 
-        chooseButton.setOnClickListener{
-            showImageOptions()
+
+        takePhotoButton.setOnClickListener {
+            takePhoto()
         }
 
         uploadButton.setOnClickListener {
@@ -54,13 +55,9 @@ class AddReceipt : AppCompatActivity() {
             val bitmap = (imageView.drawable as? BitmapDrawable)?.bitmap
 
             if (bitmap != null) {
-                // Convert to byte array
                 val imageBytes = getBitmapAsByteArray(bitmap)
-
-                // Insert into DB
                 val dbHelper = DatabaseHelper(this)
                 val id = dbHelper.insertImage(imageBytes)
-
                 if (id != -1L) {
                     showToast("Image saved with ID: $id")
                 } else {
@@ -70,23 +67,6 @@ class AddReceipt : AppCompatActivity() {
                 showToast("No image to upload")
             }
         }
-    }
-
-    private fun showImageOptions() {
-        val options = arrayOf("Choose from Gallery", "Take a Photo")
-        val builder = android.app.AlertDialog.Builder(this)
-        builder.setTitle("Select Image")
-        builder.setItems(options) { _, which ->
-            when (which) {
-                0 -> pickImageFromGallery()
-                1 -> takePhoto()
-            }
-        }
-        builder.show()
-    }
-
-    private fun pickImageFromGallery() {
-        pickImageLauncher.launch("image/*")
     }
 
     private fun takePhoto() {

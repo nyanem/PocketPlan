@@ -16,26 +16,68 @@
             android:name=".AddReceipt"
             android:exported="false" />
         <activity
-            android:name=".Rewards"
+            android:name=".AddTransaction"
+            android:exported="false" />
+        <activity
+            android:name=".CategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategorySelectionActivity"
             android:exported="false" />
         <activity
             android:name=".Expenses"
             android:exported="false" />
         <activity
+            android:name=".GoalsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Help"
+            android:exported="false" />
+        <activity
+            android:name=".HomePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Language"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".Reports"
             android:exported="false" />
+        <activity
+            android:name=".Rewards"
+            android:exported="false" />
+        <activity
+            android:name=".SurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tips"
+            android:exported="false" />
+
+        <activity
+            android:name=".UserProfile"
+            android:exported="false" />
+
+
 <!--        <activity-->
 <!--            android:name=".MainActivity"-->
 <!--            android:exported="false" />-->
 
         <activity
-            android:name=".AddTransaction"
+            android:name=".LandingPageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
