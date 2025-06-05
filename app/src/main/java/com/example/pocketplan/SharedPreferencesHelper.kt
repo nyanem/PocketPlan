@@ -1,7 +1,5 @@
 package com.example.pocketplan
 
-
-
 import android.content.Context
 import android.content.SharedPreferences
 
@@ -40,4 +38,6 @@ class SharedPreferencesHelper(context: Context) {
         return prefs.getString("username", null) == username &&
                 prefs.getString("password", null) == password
     }
+
+    
 }

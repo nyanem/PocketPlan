@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
+    android:background="#2D336B"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -12,25 +13,40 @@
         android:layout_height="40dp"
         android:fontFamily="@font/montserrat_semibold_family"
         android:text="Total Spending Report"
-        android:textColor="@color/blue2"
+        android:textColor="#A9B5DF"
         android:textSize="18sp" />
 
     <ImageView
         android:layout_width="381dp"
-        android:layout_height="214dp"/>
-<!--        android:src="@drawable/ic_graph_placeholder" />-->
+        android:layout_height="214dp" />
+    <!--        android:src="@drawable/ic_graph_placeholder" />-->
 
     <TextView
         android:layout_width="380dp"
         android:layout_height="40dp"
         android:fontFamily="@font/montserrat_semibold_family"
         android:text="Total Saving Report"
-        android:textColor="@color/blue2"
+        android:textColor="#A9B5DF"
         android:textSize="18sp" />
 
     <ImageView
         android:layout_width="381dp"
-        android:layout_height="226dp"/>
-<!--        android:src="@drawable/ic_graph_placeholder" />-->
+        android:layout_height="226dp" />
+    <!--        android:src="@drawable/ic_graph_placeholder" />-->
+
+    <Space
+        android:layout_width="380dp"
+        android:layout_height="65dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="#2B2C6D"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/nav_menu" />
+
 </LinearLayout>
 

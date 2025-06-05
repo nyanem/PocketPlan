@@ -219,6 +219,14 @@
 <!--        android:contentDescription="Next Button"-->
 <!--        app:srcCompat="@drawable/ic_next_arrow" />-->
 
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="#2B2C6D"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/nav_menu" />
 
 </LinearLayout>

@@ -7,4 +7,13 @@
     <androidx.recyclerview.widget.RecyclerView android:id="@+id/transactionRecyclerView" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="16dp"/>
     <Button android:id="@+id/btn_rewards" android:layout_width="146dp" android:layout_height="59dp" android:layout_gravity="center_horizontal" android:layout_marginTop="24dp" android:fontFamily="@font/montserrat_semibold_family" android:text="Rewards" android:textSize="18sp" app:iconTint="@color/blue2" app:rippleColor="@color/creme"/>
     <!--  Add Floating Action Button for adding new transactions  -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:background="#2B2C6D"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/nav_menu" />
 </LinearLayout>

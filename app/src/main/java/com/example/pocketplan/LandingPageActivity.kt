@@ -31,6 +31,9 @@ class LandingPageActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        val context = LocaleHelper.setLocale(this, "af")
+        val intent = Intent(context, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
