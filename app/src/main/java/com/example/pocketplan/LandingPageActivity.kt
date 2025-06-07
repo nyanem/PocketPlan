@@ -3,9 +3,8 @@ package com.example.pocketplan
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 
-class LandingPageActivity : AppCompatActivity() {
+class LandingPageActivity : BaseActivity() {
 
     private lateinit var loginButton: Button
     private lateinit var registerButton: Button
@@ -24,16 +23,16 @@ class LandingPageActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-
         registerButton.setOnClickListener {
             // Navigate to RegisterActivity
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
-        val context = LocaleHelper.setLocale(this, "af")
-        val intent = Intent(context, MainActivity::class.java)
-        startActivity(intent)
-        finish()
+        // Remove the infinite loop - this was causing the app to crash
+        // val context = LocaleHelper.setLocale(this, "af")
+        // val intent = Intent(context, LandingPageActivity::class.java)
+        // startActivity(intent)
+        // finish()
     }
 }

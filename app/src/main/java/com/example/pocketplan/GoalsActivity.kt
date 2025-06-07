@@ -101,13 +101,12 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class GoalsActivity : AppCompatActivity() {
+class GoalsActivity : BaseActivity() {
 
     private val inputMap = mutableMapOf<String, EditText>()
 

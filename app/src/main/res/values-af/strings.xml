@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="getStarted_txt">Begin</string>
+    <string name="name">Naam</string>
+    <string name="change_language">Verander die Taal?</string>
+    <string name="change_currency">Verander die geldeenheid?</string>
+    <string name="language_currency">Taal / Geldeenheid</string>
+    <string name="log_out">Teken Uit</string>
+    <string name="select_language">Kies n taal</string>
+    <string name="english">Engels</string>
+    <string name="afrikaans">Afrikaans</string>
+    <string name="xhosa">Xhosa</string>
+    <string name="language_changed">Taal verander na</string>
+    <string name="restart_required">Herstart die app om veranderings toe te pas</string>
+    <string name="select_currency">Kies n geldeenheid</string>
+</resources>

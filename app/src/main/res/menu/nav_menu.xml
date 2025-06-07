@@ -13,4 +13,8 @@
         android:id="@+id/nav_envelopes"
         android:icon="@drawable/ic_envelope"
         android:title="Envelopes" />
+    <item
+        android:id="@+id/nav_user_profile"
+        android:icon="@drawable/ic_envelope"
+        android:title="Profile" />
 </menu>

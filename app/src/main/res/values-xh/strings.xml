@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="getStarted_txt">Qala</string>
+    <string name="name">Igama</string>
+    <string name="change_language">Tshintsha ulwimi?</string>
+    <string name="change_currency">Tshintsha imali?</string>
+    <string name="language_currency">Ulwimi / Imali</string>
+    <string name="log_out">Phuma</string>
+    <string name="select_language">Khetha ulwimi</string>
+    <string name="english">IsiNgesi</string>
+    <string name="afrikaans">IsiBhulu</string>
+    <string name="xhosa">IsiXhosa</string>
+    <string name="language_changed">Ulwimi lutshintshelwe ku</string>
+    <string name="restart_required">Phinda uvule i-app ukuze usebenzise utshintsho</string>
+      <!-- Currency options -->
+    <string-array name="currency_array">
+        <item>Khetha imali</item>
+        <item>Irandi (ZAR)</item>
+        <item>Iidola (USD)</item>
+        <item>Iiyuro (EUR)</item>
+        <item>Iipawundi (GBP)</item>
+    </string-array>
+    
+    <string name="select_currency">Khetha imali</string>
+</resources>

@@ -11,12 +11,11 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
-class AddReceipt : AppCompatActivity() {
+class AddReceipt : BaseActivity() {
 
     private lateinit var imageView: ImageView
     private lateinit var takePhotoButton: Button
@@ -53,10 +52,9 @@ class AddReceipt : AppCompatActivity() {
         uploadButton.setOnClickListener {
             // Get bitmap from ImageView
             val bitmap = (imageView.drawable as? BitmapDrawable)?.bitmap
-
             if (bitmap != null) {
                 val imageBytes = getBitmapAsByteArray(bitmap)
-                val dbHelper = DatabaseHelper(this)
+                val dbHelper = PocketPlanDBHelper(this)
                 val id = dbHelper.insertImage(imageBytes)
                 if (id != -1L) {
                     showToast("Image saved with ID: $id")

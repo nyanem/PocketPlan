@@ -64,15 +64,13 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:contentDescription="Language Icon"
-            android:src="@drawable/language" />
-
-        <TextView
+            android:src="@drawable/language" />        <TextView
             android:id="@+id/language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat"
-            android:text="Language / Currency"
+            android:text="@string/language_currency"
             android:textColor="#A9B5DF"
             android:textSize="20sp" />
     </LinearLayout>
@@ -87,23 +85,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/languageSection">
-
-        <!-- Menu Item 1 -->
-
-        <!-- Menu Item 2 -->
-        <TextView
-            android:id="@+id/menuLanguage"
+        app:layout_constraintTop_toBottomOf="@+id/languageSection">        <!-- Language Selection -->
+        <Spinner
+            android:id="@+id/languageSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/menu_item_bg"
             android:fontFamily="@font/montserrat"
             android:padding="16dp"
-            android:text="Change the Language?"
             android:textColor="#FFFFFF"
-            android:textSize="18sp" />
-
-        <TextView
+            android:textSize="18sp" />        
+          <!-- Currency Section -->
+        <Spinner
             android:id="@+id/menuCurrency"
             android:layout_width="384dp"
             android:layout_height="wrap_content"
@@ -111,9 +105,7 @@
             android:background="@drawable/menu_item_bg"
             android:fontFamily="@font/montserrat"
             android:padding="16dp"
-            android:text="Change the currency? "
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:entries="@array/currency_array" />
     </LinearLayout>
 
     <LinearLayout
@@ -140,15 +132,13 @@
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <!-- Log Out Button -->
+            android:layout_weight="1" />        <!-- Log Out Button -->
         <Button
             android:id="@+id/logoutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#A9B5DF"
-            android:text="Log Out"
+            android:text="@string/log_out"
             android:textColor="#000000"
             android:fontFamily="@font/montserrat"
             android:paddingLeft="24dp"

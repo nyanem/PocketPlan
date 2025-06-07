@@ -9,7 +9,6 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -18,7 +17,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class HomePageActivity : AppCompatActivity() {
+class HomePageActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +32,8 @@ class HomePageActivity : AppCompatActivity() {
         val addTransactionButton = findViewById<FloatingActionButton>(R.id.addTransaction)
 
         addTransactionButton.setOnClickListener {
-            //val intent = Intent(this, AddTransactionActivity::class.java)// or whatevers its call
-            //startActivity(intent)
+            val intent = Intent(this, AddTransaction::class.java)//
+            startActivity(intent)
         }
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener { item ->
@@ -45,6 +44,10 @@ class HomePageActivity : AppCompatActivity() {
                 }
                 R.id.nav_reports -> {
                     startActivity(Intent(this, Reports::class.java))
+                    true
+                }
+                R.id.nav_user_profile -> {
+                    startActivity(Intent(this, UserProfile::class.java))
                     true
                 }
                 else -> false
@@ -86,10 +89,8 @@ class HomePageActivity : AppCompatActivity() {
         val prefs = getSharedPreferences("UserData", MODE_PRIVATE)
         val container = findViewById<LinearLayout>(R.id.categoryCardsContainer)
         val budgetRemainingText = findViewById<TextView>(R.id.budgetRemaining)
-        val maxSavingGoal = dbHelper.getMaxSavingGoal()
-
-        // Example overall max saving shown on top
-        budgetRemainingText.text = "R${"%.2f".format(maxSavingGoal)}"
+        val maxSavingGoal = dbHelper.getMaxSavingGoal()        // Example overall max saving shown on top
+        budgetRemainingText.text = formatCurrency(maxSavingGoal)
 
 
 
@@ -134,14 +135,13 @@ class HomePageActivity : AppCompatActivity() {
             val categoryBalance = cardView.findViewById<TextView>(R.id.balance)
             val categoryProgress = cardView.findViewById<ProgressBar>(R.id.categoryProgress)
             val categoryGoalAmount = cardView.findViewById<TextView>(R.id.categoryGoalAmount)
-
             categoryNameView.text = categoryName
-            categorySpent.text = "-R${"%.2f".format(totalAmount)}"
+            categorySpent.text = "-${formatCurrency(totalAmount)}"
             // You might fetch category goal from DB or preferences
             val goal = 5000.0 // Example fallback
-            categoryGoalAmount.text = "Goal: R${"%.2f".format(goal)}"
+            categoryGoalAmount.text = "Goal: ${formatCurrency(goal)}"
             val balance = goal - totalAmount
-            categoryBalance.text = "R${"%.2f".format(balance)}"
+            categoryBalance.text = formatCurrency(balance)
             categoryProgress.progress = if (goal > 0) ((totalAmount / goal) * 100).toInt().coerceAtMost(100) else 0
 
             container.addView(cardView)
@@ -162,15 +162,39 @@ class HomePageActivity : AppCompatActivity() {
 
         val balance = totalBudget - amountSpent
         val progress = if (totalBudget > 0) ((amountSpent / totalBudget) * 100).toInt().coerceAtMost(100) else 0
-
         categoryNameView.text = categoryName
-        categoryGoalAmount.text = "Goal: R${"%.2f".format(totalBudget)}"
-        categorySpent.text = "-R${"%.2f".format(amountSpent)}"
-        categoryBalance.text = "R${"%.2f".format(balance)}"
+        categoryGoalAmount.text = "Goal: ${formatCurrency(totalBudget)}"
+        categorySpent.text = "-${formatCurrency(amountSpent)}"
+        categoryBalance.text = formatCurrency(balance)
         categoryProgress.progress = progress
 
         container.addView(cardView)
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        // Refresh the budget remaining display with current currency
+        val budgetRemainingText = findViewById<TextView>(R.id.budgetRemaining)
+        val dbHelper = PocketPlanDBHelper(this)
+        val maxSavingGoal = dbHelper.getMaxSavingGoal()
+        budgetRemainingText.text = formatCurrency(maxSavingGoal)
+        
+        // Also refresh category cards with current currency
+        refreshCategoryCards()
+    }
+    
+    private fun refreshCategoryCards() {
+        val dbHelper = PocketPlanDBHelper(this)
+        val savedCategories = dbHelper.getAllCategories()
+        val prefs = getSharedPreferences("UserData", MODE_PRIVATE)
+        val container = findViewById<LinearLayout>(R.id.categoryCardsContainer)
+        
+        container.removeAllViews() // Clear existing cards
+        
+        for (category in savedCategories) {
+            val goal = prefs.getString("${category}_goal", "0")?.toDoubleOrNull() ?: 0.0
+            val spent = prefs.getString("${category}_spent", "0")?.toDoubleOrNull() ?: 0.0
+            addCategoryCard(container, category, goal, spent)
+        }
+    }
 }

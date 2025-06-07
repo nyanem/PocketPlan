@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
     private lateinit var dbHelper: PocketPlanDBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {

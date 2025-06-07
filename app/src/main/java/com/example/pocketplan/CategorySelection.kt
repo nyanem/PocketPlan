@@ -6,20 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class CategorySelectionActivity : AppCompatActivity() {
-
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var dbHelper: DatabaseHelper
+class CategorySelectionActivity : BaseActivity() {    private lateinit var recyclerView: RecyclerView
+    private lateinit var dbHelper: PocketPlanDBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category_selection)
 
-        dbHelper = DatabaseHelper(this)
+        dbHelper = PocketPlanDBHelper(this)
         recyclerView = findViewById(R.id.recyclerViewCategories)
 
         // Set up RecyclerView

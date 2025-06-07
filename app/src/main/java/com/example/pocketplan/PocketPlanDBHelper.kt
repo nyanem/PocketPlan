@@ -36,13 +36,20 @@ class PocketPlanDBHelper(context: Context) :
         private const val SURVEY_COLUMN_ID = "id"
         private const val SURVEY_COLUMN_INCOME = "income"
         private const val SURVEY_COLUMN_MAX_SAVING = "max_saving"
-        private const val SURVEY_COLUMN_MIN_SAVING = "min_saving"
-
-        // Table: Category Goal Amount
+        private const val SURVEY_COLUMN_MIN_SAVING = "min_saving"        // Table: Category Goal Amount
         private const val CATEGORY_GOAL_TABLE_NAME = "categories_goal"
         private const val GOAL_COLUMN_ID = "id"
         private const val CATEGORY_NAME_COLUMN = "category name"
         private const val GOAL_AMOUNT_COLUMN = "goal amount"
+
+        // Table: Transactions (from DatabaseHelper)
+        private const val TABLE_TRANSACTIONS = "transactions"
+        private const val TABLE_RECEIPTS = "receipts"
+        private const val KEY_ID = "id"
+        private const val KEY_AMOUNT = "amount"
+        private const val KEY_CATEGORY = "category"
+        private const val KEY_DATE = "date"
+        private const val KEY_RECEIPT_ID = "receipt_id"
 
     }
 
@@ -74,7 +81,6 @@ class PocketPlanDBHelper(context: Context) :
         $SURVEY_COLUMN_MIN_SAVING REAL NOT NULL
     )
 """
-
         val createCategoryGoalTable ="""
     CREATE TABLE IF NOT EXISTS $CATEGORY_GOAL_TABLE_NAME (
         $GOAL_COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -83,7 +89,27 @@ class PocketPlanDBHelper(context: Context) :
     ) 
 """
 
+        // Create Transactions table (from DatabaseHelper)
+        val createTransactionsTable = """
+            CREATE TABLE IF NOT EXISTS $TABLE_TRANSACTIONS (
+                $KEY_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                $KEY_AMOUNT REAL,
+                $KEY_CATEGORY TEXT,
+                $KEY_DATE TEXT,
+                $KEY_RECEIPT_ID INTEGER
+            )
+        """
 
+        // Create Receipts table (from DatabaseHelper)
+        val createReceiptsTable = """
+            CREATE TABLE IF NOT EXISTS $TABLE_RECEIPTS (
+                $KEY_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                image BLOB
+            )
+        """
+
+        db.execSQL(createTransactionsTable)
+        db.execSQL(createReceiptsTable)
         db.execSQL(createCategoryGoalTable)
         db.execSQL(createSurveyTable)
         db.execSQL(createCategoryTable)
@@ -300,6 +326,93 @@ class PocketPlanDBHelper(context: Context) :
         }
         cursor.close()
         return totals
+    }
+
+    // --- TRANSACTION METHODS (from DatabaseHelper) ---
+    
+    // Add a new transaction
+    fun addTransaction(transaction: Transaction): Long {
+        val db = this.writableDatabase
+        val values = ContentValues().apply {
+            put(KEY_AMOUNT, transaction.amount)
+            put(KEY_CATEGORY, transaction.category)
+            put(KEY_DATE, transaction.date)
+            // If there's a receipt URI, save the receipt ID
+            transaction.receiptUri?.let {
+                val lastPathSegment = it.lastPathSegment
+                if (lastPathSegment != null && lastPathSegment.isNotEmpty()) {
+                    put(KEY_RECEIPT_ID, lastPathSegment.toInt())
+                }
+            }
+        }
+
+        // Insert row
+        val id = db.insert(TABLE_TRANSACTIONS, null, values)
+        db.close()
+        return id
+    }
+
+    // Get all transactions
+    fun getAllTransactions(): List<Transaction> {
+        val transactions = mutableListOf<Transaction>()
+        val selectQuery = "SELECT * FROM $TABLE_TRANSACTIONS ORDER BY $KEY_DATE DESC"
+        val db = this.readableDatabase
+        val cursor = db.rawQuery(selectQuery, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getLong(cursor.getColumnIndexOrThrow(KEY_ID))
+                val amount = cursor.getDouble(cursor.getColumnIndexOrThrow(KEY_AMOUNT))
+                val category = cursor.getString(cursor.getColumnIndexOrThrow(KEY_CATEGORY))
+                val date = cursor.getString(cursor.getColumnIndexOrThrow(KEY_DATE))
+
+                // Get receipt URI if available
+                val receiptId = cursor.getInt(cursor.getColumnIndexOrThrow(KEY_RECEIPT_ID))
+                val receiptUri = if (receiptId > 0) {
+                    android.net.Uri.parse("content://com.example.pocketplan.fileprovider/$receiptId")
+                } else null
+
+                val transaction = Transaction(id, amount, category, date, receiptUri)
+                transactions.add(transaction)
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+        return transactions
+    }    // Add receipt and return its ID
+    fun addReceipt(uri: String): Long {
+        val db = this.writableDatabase
+
+        // The receipts table only has id and image columns
+        // For now, we'll create a placeholder entry since we need an ID
+        // In a proper implementation, this should save the image data
+        val values = ContentValues().apply {
+            // Insert empty blob as placeholder - this needs to be properly implemented
+            put("image", ByteArray(0))
+        }
+
+        // Insert row
+        val id = db.insert(TABLE_RECEIPTS, null, values)
+        db.close()
+        return id
+    }
+
+    // Insert image bytes into receipts table
+    fun insertImage(imageBytes: ByteArray): Long {
+        val db = this.writableDatabase
+        val values = ContentValues().apply {
+            put("image", imageBytes)
+        }
+        val id = db.insert(TABLE_RECEIPTS, null, values)
+        db.close()
+        return id
+    }
+
+    // Get current balance
+    fun getBalance(): Double {
+        val transactions = getAllTransactions()
+        return transactions.sumOf { it.amount }
     }
 
 }

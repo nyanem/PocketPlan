@@ -26,10 +26,9 @@ class TransactionAdapter(private val transactions: List<Transaction>) :
         private val amountText: TextView = itemView.findViewById(R.id.textViewAmount)
         private val categoryText: TextView = itemView.findViewById(R.id.textViewCategory)
         private val dateText: TextView = itemView.findViewById(R.id.textViewDate)
-
         fun bind(transaction: Transaction) {
             // Format amount with currency symbol and two decimal places
-            val formattedAmount = "R${String.format("%.2f", transaction.amount)}"
+            val formattedAmount = CurrencyManager.formatCurrency(itemView.context, transaction.amount)
             amountText.text = formattedAmount
 
             // Set category and date
