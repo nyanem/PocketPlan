@@ -48,7 +48,6 @@ class AddReceipt : BaseActivity() {
         takePhotoButton.setOnClickListener {
             takePhoto()
         }
-
         uploadButton.setOnClickListener {
             // Get bitmap from ImageView
             val bitmap = (imageView.drawable as? BitmapDrawable)?.bitmap
@@ -57,7 +56,14 @@ class AddReceipt : BaseActivity() {
                 val dbHelper = PocketPlanDBHelper(this)
                 val id = dbHelper.insertImage(imageBytes)
                 if (id != -1L) {
-                    showToast("Image saved with ID: $id")
+                    showToast(getString(R.string.image_saved_successfully))
+                    
+                    // Return the image ID to the calling activity
+                    val resultIntent = Intent().apply {
+                        putExtra("image_id", id)
+                    }
+                    setResult(Activity.RESULT_OK, resultIntent)
+                    finish()
                 } else {
                     showToast("Failed to save image")
                 }

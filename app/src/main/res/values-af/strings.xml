@@ -1,16 +1,129 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="getStarted_txt">Begin</string>
+    <string name="or">Of</string>
     <string name="name">Naam</string>
     <string name="change_language">Verander die Taal?</string>
     <string name="change_currency">Verander die geldeenheid?</string>
-    <string name="language_currency">Taal / Geldeenheid</string>
-    <string name="log_out">Teken Uit</string>
-    <string name="select_language">Kies n taal</string>
+    <string name="select_language">Kies \'n taal</string>
     <string name="english">Engels</string>
     <string name="afrikaans">Afrikaans</string>
     <string name="xhosa">Xhosa</string>
     <string name="language_changed">Taal verander na</string>
     <string name="restart_required">Herstart die app om veranderings toe te pas</string>
-    <string name="select_currency">Kies n geldeenheid</string>
+    <string name="select_currency">Kies \'n geldeenheid</string>
+    <string name="currency_changed">Geldeenheid verander na</string>
+    <string name="currency_rands">Rande (ZAR)</string>
+    <string name="currency_dollars">Dollars (USD)</string>
+    <string name="currency_euros">Euros (EUR)</string>
+    <string name="currency_pounds">Ponde (GBP)</string>
+    
+    <!-- Login & Registration -->
+    <string name="login">Teken In</string>
+    <string name="register">Registreer</string>
+    <string name="username">Gebruikersnaam</string>
+    <string name="password">Wagwoord</string>
+    <string name="forgot_password">WAGWOORD VERGEET?</string>
+    <string name="registration_successful">Registrasie suksesvol!</string>
+    <string name="registration_failed">Registrasie het gefaal. Gebruikersnaam bestaan moontlik reeds.</string>    <string name="username_validation">Gebruikersnaam moet ten minste 8 karakters wees, \'n hoofletter, \'n nommer insluit, en geen spesiale karakters hê nie.</string>
+    <string name="password_validation">Wagwoord moet ten minste 8 karakters wees, \'n hoofletter, \'n nommer insluit, en geen spesiale karakters hê nie.</string>
+    
+    <!-- Add Transaction -->
+    <string name="add_transaction">Voeg \'n Transaksie By</string>
+    <string name="remaining_balance">Oorblywende Balans:</string>
+    <string name="amount">Bedrag:</string>
+    <string name="category">Kategorie</string>
+    <string name="date">Datum</string>
+    <string name="upload_receipt">Laai Kwitansie Op</string>
+    <string name="upload_receipt_desc">Laai kwitansie op</string>
+    <string name="take_photo">Neem Foto</string>
+    <string name="select">Kies</string>
+    <string name="save">Stoor</string>
+
+    <!-- Help -->
+    <string name="help_title">Hulp</string>
+    <string name="help_text">Hulp met die gebruik van die app?</string>
+    <string name="questions">Gereeld gestelde vrae</string>
+
+    <!-- User Profile -->
+    <string name="my_profile">My Profiel</string>
+    <string name="profile_image_desc">Profiel Prent</string>
+    <string name="profile_name">Profiel Naam</string>
+    <string name="edit_profile">Wysig Profiel</string>
+    <string name="budgeting_tips">Begrotings Wenke</string>
+    <string name="language_currency">Taal / Geldeenheid</string>
+    <string name="log_out">Teken Uit</string>
+    
+    <!-- Tips & Tricks -->
+    <string name="budgeting_tips_title">Begrotings Wenke &amp; Truuks</string>
+    <string name="tip_1">• Hou jou uitgawes weekliks dop om bo-op jou begroting te bly.</string>
+    <string name="tip_2">• Stel realistiese doelwitte vir besparing en kategoriseer jou uitgawes.</string>
+    <string name="tip_3">• Vermy impulskopie deur \'n inkopielys te maak voordat jy uitgaan.</string>
+    <string name="tip_4">• Hersien en pas jou begroting maandeliks aan gebaseer op jou inkomste en uitgawes.</string>
+    
+    <!-- Common UI Elements -->
+    <string name="logo_desc">Logo</string>
+    <string name="back_button_desc">Terug</string>
+    <string name="user_icon_desc">Gebruikersprofiel</string>
+      <!-- Placeholders and hints -->
+    <string name="username_hint">Gebruikersnaam</string>
+    <string name="password_hint">Wagwoord</string>
+    
+    <!-- Goals Activity -->
+    <string name="create_budget_goals">Skep Begrotingsdoelwitte</string>
+    <string name="enter_amount">Voer bedrag in</string>
+
+    <!-- Homepage -->
+    <string name="budget_amount_remaining">Begrotingsbedrag Oor</string>
+    <string name="filter_categories">Filter Kategorieë</string>
+
+    <!-- Survey Activity -->
+    <string name="survey_welcome">Nou dat jy geregistreer is, kom ons help jou om jou geld te bestuur</string>
+    <string name="monthly_income_question">Wat is jou maandelikse inkomste?</string>
+    <string name="main_savings_goal">Wat is jou hoof spaardoelwit? (per maand)</string>
+    <string name="minimum_savings_goal">Wat is jou minimum spaardoelwit? (per maand)</string>
+
+    <!-- Expenses Activity -->
+    <string name="transactions_expenses">Transaksies en Uitgawes</string>
+    <string name="current_account_balance">Huidige Rekening Balans:</string>
+    <string name="loading">Laai...</string>
+    <string name="balance_loading">Balans Laai</string>
+
+    <!-- Language Activity -->
+    <string name="logo_description">Logo</string>
+    <string name="user_icon_description">Gebruiker Ikoon</string>
+    <string name="language_icon_description">Taal Ikoon</string>
+
+    <!-- Common Success Messages -->
+    <string name="goals_saved_successfully">Doelwitte suksesvol gestoor!</string>    <string name="saved_successfully">Suksesvol gestoor!</string>
+    <string name="feature_in_progress">Funksie in Ontwikkeling</string>
+    <string name="image_saved_successfully">Beeld suksesvol gestoor</string>
+    <string name="transaction_saved_successfully">Transaksie suksesvol gestoor</string>
+
+      <!-- Category Activity -->
+    <string name="select_at_least_one_category">Kies asseblief ten minste een kategorie</string>
+    <string name="add_category">Voeg Kategorie By</string>
+    <string name="categories_saved">Kategorieë gestoor!</string>
+    
+    <!-- Homepage Activity -->
+    <string name="goal_prefix">Doelwit: %s</string>
+    <string name="spent_amount">-%s</string>
+    
+    <!-- Rewards Activity -->
+    <string name="rewards">Belonings</string>
+    <string name="savings_goals">Spaardoelwitte</string>
+    <string name="free_coffee_reward">Gratis Seattle Koffie - Bekyk Kode</string>
+    <string name="two_week_streak">2 Weke Streep</string>    <!-- Reports Activity -->
+    <string name="reports">Verslae</string>
+    <string name="total_spending_report">Totale bestedingsverslag</string>
+    <string name="total_savings_report">Totale besparingsverslag</string>
+    
+    <!-- User Profile Activity -->
+    <string name="your_name">Jou Naam</string>
+    <string name="faq">VGV</string>
+
+    <!-- Help Activity -->
+    <string name="help">Hulp</string>
+    <string name="help_using_app">Hulp met die App?</string>
+    <string name="frequently_asked_questions">Gereelde Vrae?</string>
+
 </resources>

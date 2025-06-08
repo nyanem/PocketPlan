@@ -2,6 +2,7 @@ package com.example.pocketplan
 
 
 import android.R.attr.id
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
@@ -49,7 +50,6 @@ class AddTransaction : BaseActivity() {
             }
         }
     }
-
     private val selectCategoryLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -63,7 +63,22 @@ class AddTransaction : BaseActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {        super.onCreate(savedInstanceState)
+    private val uploadReceiptLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            result.data?.let { data ->                val imageId = data.getLongExtra("image_id", -1L)
+                if (imageId != -1L) {
+                    receiptId = imageId.toInt()
+                    Toast.makeText(this, "Receipt uploaded successfully", Toast.LENGTH_SHORT).show()
+                    // Receipt has been added - UI feedback provided via Toast
+                }
+            }
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_transaction)
 
         dbHelper = PocketPlanDBHelper(this)
@@ -105,12 +120,10 @@ class AddTransaction : BaseActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         categorySpinner.adapter = adapter
-        val saveButton: Button = findViewById(R.id.saveButton)
-
-        // Set up receipt upload
+        val saveButton: Button = findViewById(R.id.saveButton)        // Set up receipt upload
         uploadReceiptButton.setOnClickListener {
             val intent = Intent(this, AddReceipt::class.java)
-            startActivity(intent)
+            uploadReceiptLauncher.launch(intent)
         }
 
         // Set up save button
@@ -185,7 +198,7 @@ class AddTransaction : BaseActivity() {
         )        // Save to database
         val transactionId = dbHelper.addTransaction(transaction)
         if (transactionId > 0) {
-            Toast.makeText(this, "Transaction saved successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.transaction_saved_successfully), Toast.LENGTH_SHORT).show()
 
             // Navigate to ExpensesActivity
             val intent = Intent(this, Expenses::class.java)

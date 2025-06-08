@@ -2,6 +2,8 @@ package com.example.pocketplan
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
+import androidx.annotation.RequiresApi
 
 object CurrencyManager {
     private const val PREF_NAME = "CurrencyPrefs"
@@ -17,6 +19,7 @@ object CurrencyManager {
         "Pounds (GBP)" to Pair("GBP", "£")
     )
     
+    @RequiresApi(Build.VERSION_CODES.GINGERBREAD)
     fun setCurrentCurrency(context: Context, currencyName: String) {
         val prefs = getPreferences(context)
         val currencyInfo = currencyData[currencyName]

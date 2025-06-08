@@ -25,16 +25,14 @@
             android:layout_width="82dp"
             android:layout_height="73dp"
             android:contentDescription="Logo"
-            android:src="@drawable/logo1" />
-
-        <TextView
+            android:src="@drawable/logo1" />        <TextView
             android:id="@+id/myProfile"
             android:layout_width="0dp"
             android:layout_height="33dp"
             android:layout_weight="1"
             android:fontFamily="@font/montserrat_alternates"
             android:gravity="center"
-            android:text="My Profile"
+            android:text="@string/my_profile"
             android:textColor="#FDFCFC"
             android:textSize="20sp" />
 
@@ -83,16 +81,14 @@
         app:layout_constraintTop_toBottomOf="@id/topBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
-
-    <!-- Help Text -->
+        android:layout_marginTop="32dp" />    <!-- Help Text -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_semibold_family"
-        android:text="Help"
+        android:text="@string/help"
         android:textAlignment="center"
         android:textColor="#FFF2F2"
         android:textSize="24sp"
@@ -102,9 +98,7 @@
 
     <!-- Chip 1 -->
 
-    <!-- Chip 2 -->
-
-    <com.google.android.material.chip.Chip
+    <!-- Chip 2 -->    <com.google.android.material.chip.Chip
         android:id="@+id/chip"
         android:layout_width="390dp"
         android:layout_height="77dp"
@@ -112,15 +106,13 @@
         android:background="@drawable/menu_item_bg"
         android:backgroundTint="#7886C7"
         android:fontFamily="@font/montserrat"
-        android:text="Help Using the App?"
+        android:text="@string/help_using_app"
         android:textAlignment="center"
         android:textColor="#FFF2F2"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
-
-    <com.google.android.material.chip.Chip
+        app:layout_constraintTop_toBottomOf="@id/textView" />    <com.google.android.material.chip.Chip
         android:id="@+id/chip2"
         android:layout_width="392dp"
         android:layout_height="80dp"
@@ -128,7 +120,7 @@
         android:background="@drawable/menu_item_bg"
         android:backgroundTint="#7886C7"
         android:fontFamily="@font/montserrat"
-        android:text="Frequently Asked Questions?"
+        android:text="@string/frequently_asked_questions"
         android:textAlignment="center"
         android:textColor="#FFF2F2"
         android:textSize="16sp"

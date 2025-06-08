@@ -1,10 +1,22 @@
 package com.example.pocketplan
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 
 class UserProfile : BaseActivity() {
+    
+    private val languageActivityLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            // Language was changed, recreate this activity to apply new language
+            recreate()
+        }
+    }
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
@@ -22,8 +34,8 @@ class UserProfile : BaseActivity() {
         }
 
         languageBtn.setOnClickListener {
-            startActivity(Intent(this, Language::class.java))
+            val intent = Intent(this, Language::class.java)
+            languageActivityLauncher.launch(intent)
         }
-
     }
 }

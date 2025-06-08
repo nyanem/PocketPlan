@@ -19,3 +19,20 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Keep AndroidX classes to prevent R8 dexing issues
+-keep class androidx.** { *; }
+-dontwarn androidx.**
+
+# Keep Room database classes
+-keep class * extends androidx.room.RoomDatabase
+-keep @androidx.room.Entity class *
+-dontwarn androidx.room.**
+
+# Keep ConstraintLayout classes
+-keep class androidx.constraintlayout.** { *; }
+-dontwarn androidx.constraintlayout.**
+
+# Keep ProfileInstaller classes
+-keep class androidx.profileinstaller.** { *; }
+-dontwarn androidx.profileinstaller.**

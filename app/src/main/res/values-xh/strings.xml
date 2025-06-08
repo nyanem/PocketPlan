@@ -1,25 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="getStarted_txt">Qala</string>
+    <string name="or">Okanye</string>
     <string name="name">Igama</string>
     <string name="change_language">Tshintsha ulwimi?</string>
     <string name="change_currency">Tshintsha imali?</string>
-    <string name="language_currency">Ulwimi / Imali</string>
-    <string name="log_out">Phuma</string>
     <string name="select_language">Khetha ulwimi</string>
     <string name="english">IsiNgesi</string>
     <string name="afrikaans">IsiBhulu</string>
     <string name="xhosa">IsiXhosa</string>
     <string name="language_changed">Ulwimi lutshintshelwe ku</string>
     <string name="restart_required">Phinda uvule i-app ukuze usebenzise utshintsho</string>
-      <!-- Currency options -->
-    <string-array name="currency_array">
-        <item>Khetha imali</item>
-        <item>Irandi (ZAR)</item>
-        <item>Iidola (USD)</item>
-        <item>Iiyuro (EUR)</item>
-        <item>Iipawundi (GBP)</item>
-    </string-array>
-    
     <string name="select_currency">Khetha imali</string>
+    <string name="currency_changed">Imali itshintshelwe ku</string>
+    <string name="currency_rands">Iirand (ZAR)</string>
+    <string name="currency_dollars">Iidola (USD)</string>
+    <string name="currency_euros">Ii-euro (EUR)</string>
+    <string name="currency_pounds">Iiponti (GBP)</string>
+    
+    <!-- Login & Registration -->
+    <string name="login">Ngena</string>
+    <string name="register">Bhalisela</string>
+    <string name="username">Igama lomsebenzisi</string>
+    <string name="password">Iphasiwedi</string>
+    <string name="forgot_password">ULIBALE IPHASIWEDI?</string>
+    <string name="registration_successful">Ubhaliso luphumelele!</string>
+    <string name="registration_failed">Ubhaliso aluphumelelanga. Igama lomsebenzisi mhlawumbi sele likhona.</string>
+    <string name="username_validation">Igama lomsebenzisi kufuneka libe noobhalo aba-8 ubuncinci, libe nonobumba omkhulu, inombolo, kwaye lungabinayo izinto ezikhethekileyo.</string>
+    <string name="password_validation">Iphasiwedi kufuneka ibe noobhalo aba-8 ubuncinci, ibe nonobumba omkhulu, inombolo, kwaye ingabinayo izinto ezikhethekileyo.</string>
+    
+    <!-- Add Transaction -->
+    <string name="add_transaction">Yongeza Ithransekshini</string>
+    <string name="remaining_balance">Ibhalansi eseleyo:</string>
+    <string name="amount">Imali:</string>
+    <string name="category">Udidi</string>
+    <string name="date">Umhla</string>
+    <string name="upload_receipt">Layisha irisithi</string>
+    <string name="upload_receipt_desc">Layisha irisithi</string>
+    <string name="take_photo">Thatha Ifoto</string>
+    <string name="select">Khetha</string>
+    <string name="save">Gcina</string>
+
+    <!-- Help -->
+    <string name="help_title">Uncedo</string>
+    <string name="help_text">Uncedo lokusebenzisa i-app?</string>
+    <string name="questions">Imibuzo ebuzwa rhoqo</string>
+
+    <!-- User Profile -->
+    <string name="my_profile">Iprofayile Yam</string>
+    <string name="profile_image_desc">Umfanekiso Weprofayile</string>
+    <string name="profile_name">Igama Leprofayile</string>
+    <string name="edit_profile">Hlela Iprofayili</string>
+    <string name="budgeting_tips">Iingcebiso Zohlahlo-lwabiwo Mali</string>
+    <string name="language_currency">Ulwimi / Imali</string>
+    <string name="log_out">Phuma</string>
+    
+    <!-- Tips & Tricks -->
+    <string name="budgeting_tips_title">Iingcebiso zoBhajethi &amp; Amaqhinga</string>
+    <string name="tip_1">• Landela inkcitho yakho ngeveki ukuze uhlale uphezulu kwebhajethi yakho.</string>
+    <string name="tip_2">• Beka iinjongo ezinokwenzeka zokonga kwaye wahlukanise iindleko zakho.</string>
+    <string name="tip_3">• Ziphephe ukuthenga ngokukhawuleza ngokwenza uluhlu lokuthenga phambi kokuba uphume.</string>
+    <string name="tip_4">• Phonononga kwaye uhlengahlengise ibhajethi yakho ngenyanga ngokusekelwe kwingeniso neendleko zakho.</string>
+    
+    <!-- Common UI Elements -->
+    <string name="logo_desc">Uphawu</string>
+    <string name="back_button_desc">Buyela</string>
+    <string name="user_icon_desc">Iprofayili yomsebenzisi</string>
+
+      <!-- Placeholders and hints -->
+    <string name="username_hint">Igama lomsebenzisi</string>
+    <string name="password_hint">Iphasiwedi</string>
+    
+    <!-- Goals Activity -->
+    <string name="create_budget_goals">Yenza Iinjongo zeBhajethi</string>
+    <string name="enter_amount">Ngenisa imali</string>
+
+    <!-- Homepage -->
+    <string name="budget_amount_remaining">Imali yeBhajethi Eseleyo</string>
+    <string name="filter_categories">Hlunga iindidi</string>
+
+    <!-- Survey Activity -->
+    <string name="survey_welcome">Ngoku ukuba ubhalisiwe, masikuncede ulawule imali yakho</string>
+    <string name="monthly_income_question">Yimalini ingeniso yakho yenyanga?</string>
+    <string name="main_savings_goal">Yintoni injongo yakho enkulu yokonga? (ngenyanga)</string>
+    <string name="minimum_savings_goal">Yintoni injongo yakho encinci yokonga? (ngenyanga)</string>
+
+    <!-- Expenses Activity -->
+    <string name="transactions_expenses">Ithransekshini neMali</string>
+    <string name="current_account_balance">Ibhalansi yeakhawunti yangoku</string>
+    <string name="loading">Ilayisha...</string>
+    <string name="balance_loading">Ibhalansi Ilayisha</string>
+
+    <!-- Language Activity -->
+    <string name="logo_description">Ilogo</string>
+    <string name="user_icon_description">Umfanekiso Womsebenzisi</string>
+    <string name="language_icon_description">Umfanekiso Wolwimi</string>
+
+    <!-- Common Success Messages -->
+    <string name="goals_saved_successfully">Iinjongo zigcinwe ngempumelelo!</string>
+    <string name="saved_successfully">Kugcinwe ngempumelelo!</string>
+    <string name="feature_in_progress">Isixhobo Sisaqhubeka</string>
+    <string name="image_saved_successfully">Umfanekiso ugcinwe ngempumelelo</string>
+    <string name="transaction_saved_successfully">Ithransekshini igcinwe ngempumelelo</string>
+
+      <!-- Category Activity -->
+    <string name="select_at_least_one_category">Nceda ukhethe ubuncinci olunye udidi</string>
+    <string name="add_category">Yongeza Udidi</string>
+    <string name="categories_saved">Iindidi zigcinwe!</string>
+    
+    <!-- Homepage Activity -->
+    <string name="goal_prefix">Injongo: %s</string>
+    <string name="spent_amount">-%s</string>
+    
+    <!-- Rewards Activity -->
+    <string name="rewards">Amabhaso</string>
+    <string name="savings_goals">Iinjongo zokonga</string>
+    <string name="free_coffee_reward">IKofu yaSimahla yaseSeattle - Jonga iKhowudi</string>
+    <string name="two_week_streak">Umgca weeVeki ezi-2</string>    <!-- Reports Activity -->
+    <string name="reports">Iingxelo</string>
+    <string name="total_spending_report">Ingxelo yeMali eSetyenzisiweyo</string>
+    <string name="total_savings_report">Ingxelo yeMali eKhangelweyo</string>
+
+    
+    <!-- User Profile Activity -->
+    <string name="your_name">Igama lakho</string>
+    <string name="faq">Imibuzo eBuzwa Rhoqo</string>
+
+    <!-- Help Activity -->
+    <string name="help">Uncedo</string>
+    <string name="help_using_app">Uncedo nge-App?</string>
+    <string name="frequently_asked_questions">Imibuzo eBuzwa Rhoqo?</string>
+
 </resources>

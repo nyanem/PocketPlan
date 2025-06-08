@@ -110,11 +110,11 @@
         android:text="Register"
         android:textSize="18sp"
         android:textAllCaps="false"
-        android:textColor="#DBD4D7" />
-
-    <Space
+        android:textColor="#DBD4D7" />    <Space
         android:layout_width="match_parent"
         android:layout_height="62dp" />
+
+    <!-- Debug Language Test Button -->
 
     <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
     <!--        android:id="@+id/language_FAB"-->

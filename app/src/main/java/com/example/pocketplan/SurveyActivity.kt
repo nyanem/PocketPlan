@@ -33,10 +33,9 @@ class SurveyActivity : BaseActivity() {
                 putString("income", income)
                 putString("maxSaving", maxSaving)
                 putString("minSaving", minSaving)
-                apply()
-            }
+                apply()            }
 
-            Toast.makeText(this, "Saved successfully!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.saved_successfully), Toast.LENGTH_SHORT).show()
         }
         val saveSurveyButton = findViewById<Button>(R.id.saveSurveyButton)
         saveSurveyButton.setOnClickListener {

@@ -32,15 +32,13 @@
                 android:layout_width="89dp"
                 android:layout_height="76dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/pp_logo" />
-
-            <TextView
+                app:srcCompat="@drawable/pp_logo" />            <TextView
                 android:id="@+id/register_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_semibold_family"
-                android:text="Create Budget Goals"
+                android:text="@string/create_budget_goals"
                 android:textColor="#AAB6E0"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -58,30 +56,18 @@
         android:layout_height="0dp"
         android:layout_weight="0.1"
         android:gravity="center"
-        android:padding="16dp">
-
-        <Button
+        android:padding="16dp">        <Button
             android:id="@+id/saveGoalsButton"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#8695DC"
             android:fontFamily="@font/montserrat_medium"
             android:padding="14dp"
-            android:text="Save"
+            android:text="@string/save"
             android:textAllCaps="false"
             android:textColor="#DBD4D7" />
 
     </LinearLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:background="#2B2C6D"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        app:menu="@menu/nav_menu" />
 
 </LinearLayout>
 

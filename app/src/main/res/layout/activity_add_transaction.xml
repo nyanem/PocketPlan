@@ -31,15 +31,13 @@
             android:layout_marginTop="36dp"
             android:src="@drawable/usericon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
+            app:layout_constraintTop_toTopOf="parent" />        <TextView
             android:id="@+id/titleTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
             android:fontFamily="@font/montserrat_alternates_medium"
-            android:text="Add a Transaction"
+            android:text="@string/add_transaction"
             android:textAlignment="center"
             android:textColor="#A9B5DF"
             android:textSize="24sp"
@@ -49,15 +47,13 @@
 
         <!-- Remaining Balance -->
 
-        <!-- Amount -->
-
-        <TextView
+        <!-- Amount -->        <TextView
             android:id="@+id/balanceLabel"
             android:layout_width="211dp"
             android:layout_height="34dp"
             android:layout_marginTop="40dp"
             android:fontFamily="@font/montserrat_alternates"
-            android:text="Remaining Balance:"
+            android:text="@string/remaining_balance"
             android:textColor="#A9B5DF"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@id/balanceEditText"
@@ -80,16 +76,14 @@
             android:padding="10dp"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/balanceLabel" />
-
-        <TextView
+            app:layout_constraintTop_toTopOf="@id/balanceLabel" />        <TextView
             android:id="@+id/amountLabel"
             android:layout_width="209dp"
             android:layout_height="32dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="36dp"
             android:fontFamily="@font/montserrat_alternates"
-            android:text="Amount:"
+            android:text="@string/amount"
             android:textColor="#A9B5DF"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,16 +104,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@id/amountLabel"
-            app:layout_constraintTop_toTopOf="@id/amountLabel" />
-
-        <TextView
+            app:layout_constraintTop_toTopOf="@id/amountLabel" />        <TextView
             android:id="@+id/categoryLabel"
             android:layout_width="211dp"
             android:layout_height="32dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="36dp"
             android:fontFamily="@font/montserrat_alternates"
-            android:text="Category"
+            android:text="@string/category"
             android:textColor="#A9B5DF"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -137,22 +129,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@id/categoryLabel"
-            app:layout_constraintTop_toTopOf="@id/categoryLabel" />
-
-        <TextView
+            app:layout_constraintTop_toTopOf="@id/categoryLabel" />        <TextView
             android:id="@+id/dateLabel"
             android:layout_width="156dp"
             android:layout_height="44dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="32dp"
             android:fontFamily="@font/montserrat_alternates"
-            android:text="Date"
+            android:text="@string/date"
             android:textColor="#A9B5DF"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/categorySpinner" />
-
-        <EditText
+            app:layout_constraintTop_toBottomOf="@id/categorySpinner" />        <EditText
             android:id="@+id/dateEditText"
             android:layout_width="122dp"
             android:layout_height="37dp"
@@ -161,34 +149,30 @@
             android:clickable="true"
             android:focusable="false"
             android:fontFamily="@font/montserrat_alternates"
-            android:hint="Select"
+            android:hint="@string/select"
             android:padding="10dp"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.935"
             app:layout_constraintStart_toEndOf="@id/dateLabel"
-            app:layout_constraintTop_toTopOf="@id/dateLabel" />
-
-        <TextView
+            app:layout_constraintTop_toTopOf="@id/dateLabel" />        <TextView
             android:id="@+id/receiptLabel"
             android:layout_width="191dp"
             android:layout_height="48dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="36dp"
             android:fontFamily="@font/montserrat_alternates"
-            android:text="Upload Receipt"
+            android:text="@string/upload_receipt"
             android:textColor="#A9B5DF"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dateEditText" />
-
-        <ImageButton
+            app:layout_constraintTop_toBottomOf="@id/dateEditText" />        <ImageButton
             android:id="@+id/uploadButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@android:drawable/ic_menu_camera"
             android:background="@android:color/transparent"
-            android:contentDescription="Upload receipt"
+            android:contentDescription="@string/upload_receipt_desc"
             app:layout_constraintTop_toTopOf="@id/receiptLabel"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -197,7 +181,7 @@
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
+            android:text="@string/save"
             android:textColor="#FFFFFF"
             android:backgroundTint="#A9B5DF"
             android:fontFamily="@font/montserrat_alternates"
@@ -205,19 +189,6 @@
             app:layout_constraintTop_toBottomOf="@id/receiptLabel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNav"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentBottom="true"
-            android:background="#2B2C6D"
-            app:itemIconTint="@color/white"
-            app:itemTextColor="@color/white"
-            app:menu="@menu/nav_menu"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="9dp"
-            tools:layout_editor_absoluteY="663dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

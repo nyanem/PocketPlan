@@ -16,13 +16,12 @@ class Help : BaseActivity() {
 
         val chip = findViewById<TextView>(R.id.chip)
         val chip2 = findViewById<TextView>(R.id.chip2)
-
         chip.setOnClickListener {
-            Toast.makeText(this, "Feature in Progress", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.feature_in_progress), Toast.LENGTH_SHORT).show()
         }
 
         chip2.setOnClickListener {
-            Toast.makeText(this, "Feature in Progress", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.feature_in_progress), Toast.LENGTH_SHORT).show()
         }
 
         // Find the back button in the layout

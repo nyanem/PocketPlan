@@ -6,26 +6,22 @@
     android:layout_height="match_parent"
     android:background="#2D336B"
     android:orientation="vertical"
-    android:padding="16dp">
-
-    <TextView
+    android:padding="16dp">    <TextView
         android:layout_width="380dp"
         android:layout_height="40dp"
         android:fontFamily="@font/montserrat_semibold_family"
-        android:text="Total Spending Report"
+        android:text="@string/total_spending_report"
         android:textColor="#A9B5DF"
         android:textSize="18sp" />
 
     <ImageView
         android:layout_width="381dp"
         android:layout_height="214dp" />
-    <!--        android:src="@drawable/ic_graph_placeholder" />-->
-
-    <TextView
+    <!--        android:src="@drawable/ic_graph_placeholder" />-->    <TextView
         android:layout_width="380dp"
         android:layout_height="40dp"
         android:fontFamily="@font/montserrat_semibold_family"
-        android:text="Total Saving Report"
+        android:text="@string/total_savings_report"
         android:textColor="#A9B5DF"
         android:textSize="18sp" />
 

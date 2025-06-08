@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Currency options -->
+<resources>    <!-- Currency options -->
     <string-array name="currency_array">
-        <item>Kies n geldeenheid</item>
-        <item>Rand (ZAR)</item>
-        <item>Dollars (USD)</item>
-        <item>Euros (EUR)</item>
-        <item>Pond (GBP)</item>
+        <item>@string/select_currency</item>
+        <item>@string/currency_rands</item>
+        <item>@string/currency_dollars</item>
+        <item>@string/currency_euros</item>
+        <item>@string/currency_pounds</item>
     </string-array>
     
     <string-array name="language_options">

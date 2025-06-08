@@ -20,11 +20,6 @@ import kotlinx.coroutines.withContext
 
 class CategoryActivity : BaseActivity() {
 
-    //    private lateinit var db: AppDatabase
-//    private lateinit var categoryDao: CategoryDao
-
-    private lateinit var dbHelper: CategoryDatabaseHelper
-//    private val selectedCategories = mutableListOf<String>()
     private lateinit var db: AppDatabase
     private val selectedCategories = mutableListOf<String>()
 
@@ -39,7 +34,6 @@ class CategoryActivity : BaseActivity() {
         }
 
 
-        val dbHelper = CategoryDatabaseHelper(this)
         db = AppDatabase.getDatabase(this)
 
         val buttons = listOf(
@@ -72,26 +66,23 @@ class CategoryActivity : BaseActivity() {
                 customInput.setText("")
             }
         }
-
         val selectBtn = findViewById<Button>(R.id.selectCategoriesButton)
         selectBtn.setOnClickListener {
+            if (selectedCategories.isEmpty()) {
+                Toast.makeText(this@CategoryActivity, getString(R.string.select_at_least_one_category), Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            
             lifecycleScope.launch {
                 selectedCategories.forEach {
                     db.categoryDao().insertCategory(CategoryEntity(name = it))
                 }
-                Toast.makeText(this@CategoryActivity, "Categories saved!", Toast.LENGTH_SHORT)
+                Toast.makeText(this@CategoryActivity, getString(R.string.categories_saved), Toast.LENGTH_SHORT)
                     .show()
                 val intent = Intent(this@CategoryActivity, GoalsActivity::class.java)
+                intent.putExtra("categories", selectedCategories.toTypedArray())
                 startActivity(intent)
             }
-        }
-
-        findViewById<Button>(R.id.selectCategoriesButton).setOnClickListener {
-            selectedCategories.forEach { dbHelper.insertCategory(it) }
-
-            val intent = Intent(this, GoalsActivity::class.java)
-            intent.putExtra("categories", selectedCategories.toTypedArray())
-            startActivity(intent)
         }
     }
 }

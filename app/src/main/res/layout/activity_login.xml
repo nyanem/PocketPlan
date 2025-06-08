@@ -19,16 +19,14 @@
         android:id="@+id/pp_logo"
         android:layout_width="89dp"
         android:layout_height="76dp"
-        app:srcCompat="@drawable/pp_logo" />
-
-    <!-- Login Title -->
+        app:srcCompat="@drawable/pp_logo" />    <!-- Login Title -->
     <TextView
         android:id="@+id/loginTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:fontFamily="@font/montserrat_semibold_family"
-        android:text="Login"
+        android:text="@string/login"
         android:textAlignment="center"
         android:textColor="#919FDC"
         android:textSize="24sp"
@@ -41,20 +39,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_vertical"
         android:fontFamily="@font/montserrat_semibold_family"
-        android:text="Username"
+        android:text="@string/username"
         android:textColor="#AAB6E0"
         android:textSize="17sp" />
 
     <EditText
         android:id="@+id/username_txtbox"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_height="wrap_content"        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_edittext"
-        android:hint="Username"
+        android:hint="@string/username_hint"
         android:padding="16dp"
+        android:gravity="start"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="#000000" />
@@ -62,15 +60,13 @@
     <!-- Password -->
     <Space
         android:layout_width="match_parent"
-        android:layout_height="45dp" />
-
-    <TextView
+        android:layout_height="45dp" />    <TextView
         android:id="@+id/password_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_vertical"
         android:fontFamily="@font/montserrat_semibold_family"
-        android:text="Password"
+        android:text="@string/password"
         android:textColor="#AAB6E0"
         android:textSize="17sp" />
 
@@ -79,7 +75,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="Password"
+        android:hint="@string/password_hint"
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="16dp"
@@ -95,7 +91,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="32dp"
         android:fontFamily="@font/montserrat_subrayada"
-        android:text="FORGOT_PASSWORD?"
+        android:text="@string/forgot_password"
         android:textColor="#8695DC"
         android:textSize="14sp"
         android:textStyle="bold" />
@@ -109,7 +105,7 @@
         android:backgroundTint="#8695DC"
         android:fontFamily="@font/montserrat_medium"
         android:padding="14dp"
-        android:text="Login"
+        android:text="@string/login"
         android:textAllCaps="false"
         android:textColor="#DBD4D7" />
 

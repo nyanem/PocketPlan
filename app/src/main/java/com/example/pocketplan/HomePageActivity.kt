@@ -136,10 +136,10 @@ class HomePageActivity : BaseActivity() {
             val categoryProgress = cardView.findViewById<ProgressBar>(R.id.categoryProgress)
             val categoryGoalAmount = cardView.findViewById<TextView>(R.id.categoryGoalAmount)
             categoryNameView.text = categoryName
-            categorySpent.text = "-${formatCurrency(totalAmount)}"
+            categorySpent.text = getString(R.string.spent_amount, formatCurrency(totalAmount))
             // You might fetch category goal from DB or preferences
             val goal = 5000.0 // Example fallback
-            categoryGoalAmount.text = "Goal: ${formatCurrency(goal)}"
+            categoryGoalAmount.text = getString(R.string.goal_prefix, formatCurrency(goal))
             val balance = goal - totalAmount
             categoryBalance.text = formatCurrency(balance)
             categoryProgress.progress = if (goal > 0) ((totalAmount / goal) * 100).toInt().coerceAtMost(100) else 0
@@ -169,17 +169,15 @@ class HomePageActivity : BaseActivity() {
         categoryProgress.progress = progress
 
         container.addView(cardView)
-    }
-
-    override fun onResume() {
+    }    override fun onResume() {
         super.onResume()
-        // Refresh the budget remaining display with current currency
+        // Refresh the budget remaining display with current currency and language
         val budgetRemainingText = findViewById<TextView>(R.id.budgetRemaining)
         val dbHelper = PocketPlanDBHelper(this)
         val maxSavingGoal = dbHelper.getMaxSavingGoal()
         budgetRemainingText.text = formatCurrency(maxSavingGoal)
         
-        // Also refresh category cards with current currency
+        // Also refresh category cards with current currency and language
         refreshCategoryCards()
     }
     

@@ -24,13 +24,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
+        app:layout_constraintTop_toTopOf="parent">        <ImageView
             android:id="@+id/logo"
             android:layout_width="94dp"
             android:layout_height="69dp"
-            android:contentDescription="Logo"
+            android:contentDescription="@string/logo_desc"
             android:src="@drawable/logo1" />
 
         <View
@@ -39,18 +37,17 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="67dp"
+            android:id="@+id/imageView5"
+            android:layout_width="16dp"
+            android:layout_height="64dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
-    </LinearLayout>
+            app:srcCompat="@drawable/usericon" />
 
-    <TextView
+    </LinearLayout>    <TextView
         android:id="@+id/tipsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Budgeting Tips &amp; Tricks"
+        android:text="@string/budgeting_tips_title"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:fontFamily="@font/montserrat"
@@ -83,13 +80,11 @@
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp"
-                app:cardBackgroundColor="#3C4A94">
-
-                <TextView
+                app:cardBackgroundColor="#3C4A94">                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="• Track your spending weekly to stay on top of your budget."
+                    android:text="@string/tip_1"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp" />
             </androidx.cardview.widget.CardView>
@@ -107,7 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="• Set realistic goals for savings and categorize your expenses."
+                    android:text="@string/tip_2"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp" />
             </androidx.cardview.widget.CardView>
@@ -125,7 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="• Avoid impulse buying by creating a shopping list before you go out."
+                    android:text="@string/tip_3"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp" />
             </androidx.cardview.widget.CardView>
@@ -142,7 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="• Review and adjust your budget monthly based on your income and expenses."
+                    android:text="@string/tip_4"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp" />
             </androidx.cardview.widget.CardView>

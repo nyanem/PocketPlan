@@ -140,11 +140,9 @@ class GoalsActivity : BaseActivity() {
                 ).apply {
                     topMargin = 20
                 }
-            }
-
-            // Create input field
+            }            // Create input field
             val input = EditText(this).apply {
-                hint = "Enter amount"
+                hint = getString(R.string.enter_amount)
                 setTextColor(Color.BLACK)
                 setHintTextColor(Color.parseColor("#6E79BA"))
                 background = ContextCompat.getDrawable(this@GoalsActivity, R.drawable.rounded_edittext)
@@ -179,10 +177,9 @@ class GoalsActivity : BaseActivity() {
                     editor.putString(category, amount)
                 }
             }
-
             editor.apply()
 
-            Toast.makeText(this, "Goals saved successfully!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.goals_saved_successfully), Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, HomePageActivity::class.java)
             startActivity(intent)

@@ -10,15 +10,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:visibility="visible">
-
-        <TextView
+        android:visibility="visible">        <TextView
             android:id="@+id/textView2"
             android:layout_width="369dp"
             android:layout_height="95dp"
             android:fontFamily="@font/montserrat_semibold_family"
             android:gravity="center_horizontal"
-            android:text="Rewards"
+            android:text="@string/rewards"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#AAB6E0"
@@ -29,12 +27,10 @@
         <androidx.cardview.widget.CardView
             android:layout_width="268dp"
             android:layout_height="136dp"
-            app:cardBackgroundColor="#7886C7">
-
-            <TextView
+            app:cardBackgroundColor="#7886C7">            <TextView
                 android:layout_width="213dp"
                 android:layout_height="81dp"
-                android:text="R1000                                                                                                                              Savings goals"
+                android:text="@string/savings_goals"
                 android:textColor="#FFFFFF"
                 android:textSize="28sp"
                 android:textStyle="bold" />
@@ -44,32 +40,44 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardBackgroundColor="@color/blue3"
-            app:cardCornerRadius="30dp">
-
-            <TextView
+            app:cardBackgroundColor="#7886C7"
+            app:cardCornerRadius="30dp">            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="151dp"
                 android:gravity="center_horizontal"
                 android:paddingTop="8dp"
-                android:text="Free Seattle Coffee - View Code"
+                android:text="@string/free_coffee_reward"
                 android:textColor="#FFFFFF" />
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/blue3">
-
-            <TextView
+            app:cardBackgroundColor="#7886C7">            <TextView
                 android:layout_width="348dp"
                 android:layout_height="83dp"
                 android:gravity="center_horizontal"
                 android:paddingTop="16dp"
-                android:text="2 Week Streak"
+                android:text="@string/two_week_streak"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
+
         </androidx.cardview.widget.CardView>
+
+        <Space
+            android:layout_width="359dp"
+            android:layout_height="95dp" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="#2B2C6D"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:menu="@menu/nav_menu" />
 
         <!--  More rewards...  -->
     </LinearLayout>

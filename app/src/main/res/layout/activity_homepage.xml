@@ -15,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="-4dp"
         android:orientation="vertical"
-        android:padding="24dp">        <TextView
+        android:padding="24dp">
+        <TextView
             android:id="@+id/budgetRemaining"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,14 +24,12 @@
             android:text="0.00"
             android:textColor="#FFF2F2"
             android:textSize="35sp"
-            android:textStyle="bold" />
-
-        <TextView
+            android:textStyle="bold" />        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/montserrat_semibold_family"
-            android:text="Budget Amount Remaining"
+            android:text="@string/budget_amount_remaining"
             android:textColor="#FFF2F2"
             android:textSize="14sp" />
 

@@ -57,10 +57,11 @@
             android:exported="false" />
         <activity
             android:name=".Tips"
-            android:exported="false" />
-
-        <activity
+            android:exported="false" />        <activity
             android:name=".UserProfile"
+            android:exported="false" />
+        <activity
+            android:name=".LanguageVerificationActivity"
             android:exported="false" />
 
 
