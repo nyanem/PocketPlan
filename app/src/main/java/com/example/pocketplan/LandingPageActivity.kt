@@ -21,7 +21,6 @@ class LandingPageActivity : BaseActivity() {    private lateinit var loginButton
         Log.d("LandingPageActivity", "Current locale: ${resources.configuration.locales[0]}")
         loginButton = findViewById(R.id.loginButton)
         registerButton = findViewById(R.id.registerButton)
-        debugLanguageBtn = findViewById(R.id.debugLanguageBtn)
 
         loginButton.setOnClickListener {
             // Navigate to LoginActivity
